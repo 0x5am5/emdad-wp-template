@@ -84,13 +84,18 @@ p {
 	h1,
 	.h1
 	{
-		font-size: 2.571rem;
+		font-size: 36px;
+
+		.sub-head
+		{
+			font-size: 22px;
+		}
 	}
 
 	h2,
 	.h2
 	{
-		font-size: 1.929rem;
+		font-size: 27px;
 		margin-bottom: 20px;	
 	}
 }

@@ -8,8 +8,8 @@
 ?>
 
 <div class="content content-wrap" id="top">
-	<?php if( have_rows('sections') ): ?>
-		<?php while( have_rows('sections') ): the_row();
+	<?php if( have_rows('section') ): ?>
+		<?php while( have_rows('section') ): the_row();
 			$company = explode('--', get_sub_field('company'));
 			$role = get_sub_field('role');
 			$intro = get_sub_field('intro');

@@ -55,30 +55,31 @@ get_header(); ?>
 		<!-- Brands -->	
 		<?php endif; ?>
 
-		<?php if( have_rows('projects') ): ?>
+		<?php// if( have_rows('projects') ): ?>
 		<!-- Projects -->
-		<?php $i = 0; ?>
+		<?php //$i = 0; ?>
 			<div class="content__section projects" id="projects">
 				<h2>Projects</h2>
-				<ul class="list-inline grid">
-					<?php while( have_rows('projects') ): the_row(); 
-						$text = get_sub_field('link_text');
-						$pageJump = get_sub_field('page_jump');
-						$post_object = setup_postdata(get_field('post_object'));
-						$link = get_field('post_objects');	
-						if ($pageJump) {				
-							$link = substr($link, 0, -1);
-							$link = $link.'#'.$pageJump;
-						}
-						$i++
+				<?php get_template_part( 'template-parts/content', 'projects' ); ?>
+				<!-- <ul class="list-inline grid"> -->
+					<?php //while( have_rows('projects') ): the_row(); 
+						//$text = get_sub_field('link_text');
+						// $pageJump = get_sub_field('page_jump');
+						// $post_object = setup_postdata(get_field('post_object'));
+						// $link = get_field('post_objects');	
+						// if ($pageJump) {				
+						// 	$link = substr($link, 0, -1);
+						// 	$link = $link.'#'.$pageJump;
+						// }
+						// $i++
 						?>
-							<li class="col w-33"><a href="<?php echo $link ?>"><?php echo $text; ?></a></li>
-						<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
-					<?php endwhile; ?>
-				</ul>
+							<!-- <li class="col w-33"><a href="<?php echo $link ?>"><?php echo $text; ?></a></li> -->
+						<?php// wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+					<?php //endwhile; ?>
+				<!-- </ul> -->
 			</div>
 		<!-- Projects -->	
-		<?php endif; ?>
+		<?php// endif; ?>
 
 		<?php if( have_rows('skills') ): ?>
 		<!-- Skills -->
