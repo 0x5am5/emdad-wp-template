@@ -1,0 +1,45 @@
+.show
+{
+	display: block;
+
+	&--sml
+	{
+		display: none;
+	}
+
+	&--lrg
+	{
+		display: block
+	}
+}
+
+.hide
+{
+
+	&--sml
+	{
+		display: block;
+	}
+
+	&--lrg
+	{
+		display: none;
+	}
+}
+
+@media only screen and (max-width: $breakpointTablet) {
+	.show
+	{
+		&--sml
+		{
+			display: block;
+		}
+	}
+	.hide
+	{
+		&--sml
+		{
+			display: none;
+		}
+	}
+}

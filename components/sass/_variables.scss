@@ -1,0 +1,26 @@
+//$font-bold: 'Helvetica Neue Bold', 'Helvetica Neue';
+//$font-rg: 'Helvetica Neue', 'Helvetica Neue';
+//$font-lt: 'Helvetica Neue Thin', 'Helvetica Neue';
+//$font-ult: 'Helvetica Neue UltraLight', 'Helvetica Neue';
+
+
+$font-bold: '2E7FC6_1_0', 'Arial Black', sans-serif;
+$font-lt: '2E7FC6_0_0', 'Arial', sans-serif;
+
+$font-rg: $font-bold;
+$font-ult: $font-lt;
+
+$base-font-color: #333;
+
+//Colors
+$blue: #0066FF;
+$grey: #636363;
+$orange: #da7c18;
+
+//Breakpoint
+$breakpointDesktop: 1024px; 
+$breakpointTablet: 768px;
+
+// Anination
+$animationTime: 400ms;
+$animationStyle: ease-in;

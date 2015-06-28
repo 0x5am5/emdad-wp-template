@@ -1,0 +1,65 @@
+.media
+{
+	overflow: hidden;
+	text-align: left;
+
+	&--img
+	{
+		float: left;
+		margin-right: 20px;
+	}
+
+	&--right
+	{
+		text-align: right;
+
+		.media--img
+		{
+			float: right;
+			margin-left: 20px;
+		}
+	}
+
+	&--center
+	{
+		text-align: center;
+		
+		.media--img {			
+			float: none;
+			margin: 0 auto;
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpointTablet) {
+	.media
+	{
+		padding: 0 10px;
+		font-size: 1.143rem;
+
+		&--img
+		{
+			width: 50%;
+			padding-right: 10px;
+			margin-right: 10px;
+		}
+	}
+
+	.double-img
+	{
+		margin-bottom: 60px;
+
+		img
+		{
+			max-width: 100%;
+		}
+
+		.col {
+			width: 50%;
+		}
+		.pad
+		{
+			padding: 0 10px;
+		}
+	}
+}

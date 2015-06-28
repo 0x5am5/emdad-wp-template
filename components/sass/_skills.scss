@@ -1,0 +1,202 @@
+.skills-mod
+{
+	overflow: hidden; 
+
+	&--main-link
+	{
+		padding: 10px 25px 10px 25px;
+		display: block;
+
+		// &:hover,
+		// &:focus 
+		// {
+		// 	.arrow
+		// 	{
+		// 		background: url(img/sprites/arrow.png) no-repeat;
+		// 	}
+		// }
+	}
+
+	&__skill
+	{
+		position: relative;
+		transition: width 400ms ease;
+	}
+
+	&--title
+	{		  
+		  transform: rotate(-90deg);		 
+		  transform-origin: top left;
+		  position: absolute;		 
+		  left: 0px;
+		  width: 300px;
+		  bottom: -8px;		 
+	}
+
+	&__img-hide
+	{
+		overflow: hidden;
+		
+	}
+
+	&--view-all
+	{
+		display: none;
+		position: absolute;
+		right: 0;
+		bottom: 15px;
+		padding: 10px 15px;
+		padding-right: 10%;
+		background: #fff;
+		color: $blue;
+	}
+
+	.arrow
+	{		
+		transition: transform 400ms ease;
+		transform-origin: 50% 50%;
+	}
+
+	&--arrow
+	{
+		position: absolute;
+		right: 35px;
+		top: 140px;
+	}
+
+	&--open
+	{
+		.skills-mod__img-hide
+		{
+			width: 0;
+		}
+
+		.skills-mod__skill
+		{
+			width: 9%;	
+		}
+
+		.skills-mod__skill--open
+		{
+			width: 55%;
+			transition: width 400ms ease;
+
+			.skills-mod__img-hide
+			{
+				width: 100%;
+			}
+
+			.skills-mod--main-link
+			{
+				padding-right: 0;
+			}
+
+			.arrow
+			{
+				display: inline-block;
+				// background: url(img/sprites/arrow-hvr.png) no-repeat;
+				transform:rotate(180deg);	
+				transition: transform $animationTime $animationStyle;
+			}
+
+			.skills-mod--title
+			{
+				font-weight: 700;
+				color: $blue;
+				bottom: -9px;
+			}
+
+			.skills-mod--arrow
+			{
+				padding: {
+					top: 140px;
+					bottom: 140px;
+					left: 15px;
+				}
+				right: 15px;				
+				top: 0;
+				transition: padding 10ms $animationStyle 400ms, top 10ms $animationStyle 400ms;
+			}
+
+			.skills-mod--view-all
+			{
+				display: block;
+			}
+		}
+
+		.arrow 
+		{
+			display: none;
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpointTablet) {
+	.skills-mod
+	{
+		&--main-link
+		{
+			padding: 0;
+			margin-bottom: 20px;
+			display: inline;
+
+			&:after
+			{
+				content: '>';
+				display: inline-block;
+				padding-left: 10px;
+				font-family: "AppleGothic";
+			}
+		}
+
+		&__skill
+		{
+			margin-bottom: 30px;
+		}
+
+		&--title
+		{
+			transform: none;
+			position: static;
+			display: inline;
+		}
+
+		&__img-hide
+		{
+			display: none;
+		}
+
+		&--open
+		{
+			.skills-mod__skill 
+			{
+				width: 100%;
+			}
+			.skills-mod__skill--open
+			{
+				width: auto;
+				
+				.skills-mod--title
+				{
+					font-weight: inherit;
+					color: inherit;
+				}
+
+				.skills-mod--view-all {
+					display: none;
+				}
+
+				.arrow
+				{
+					display: none;
+				}
+			}
+		}
+		.arrow 
+		{
+			display: none;
+		}
+
+
+	}
+}

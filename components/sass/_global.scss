@@ -1,0 +1,96 @@
+.access
+{
+	position: absolute;
+	left:-9999px
+}
+
+.list-inline
+{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	li {
+		display: inline-block;
+	} 
+}
+
+.content
+{
+	padding:0 20px;
+	overflow: hidden;
+
+	&__section
+	{
+		max-width: 960px;
+		margin: 0 auto;
+		margin-bottom: 40px;
+	}
+
+	&--dark
+	{
+		background: #eee;
+	}
+}
+
+.skip-link {
+	position: absolute;
+	left: -9999px;
+
+	&:focus
+	{
+		position: static;
+		left: 0;
+	}
+}
+
+.content-wrap 
+{
+	padding-top: 50px;
+}
+.js {
+	.content-wrap
+	{
+		padding-top: 260px;
+	}
+}
+
+.button,
+a.button {		
+	padding: 10px 15px;
+	background-color: $grey;
+	color: #fff;
+
+	&:hover,
+	&:focus
+	{
+		text-decoration: underline;
+	}
+
+	&:visited
+	{
+		color: #fff;
+	}
+}
+
+@media only screen and (max-width: $breakpointTablet) {
+	.content
+	{
+
+		padding: 0 10px;
+	}
+
+	.button
+	{
+		display: block;
+		text-align: center;
+		font-size: 1.286rem;
+	}
+
+	.js {
+		.content-wrap 
+		{
+			// padding-top: 50px;
+		}
+	}
+}

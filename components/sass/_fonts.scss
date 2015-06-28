@@ -1,0 +1,22 @@
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/2e7fc6");
+
+// Bold
+@font-face {
+	font-family: '2E7FC6_1_0';
+	src: url('fonts/2E7FC6_0_0.eot');
+	src: url('fonts/2E7FC6_0_0.eot?#iefix') format('embedded-opentype'),
+	url('fonts/2E7FC6_0_0.woff2') format('woff2'),
+	url('fonts/2E7FC6_0_0.woff') format('woff'),
+	url('fonts/2E7FC6_0_0.ttf') format('truetype');
+}
+// Light
+@font-face {
+	font-family: '2E7FC6_0_0';
+	src: url('fonts/2E7FC6_1_0.eot');
+	src: url('fonts/2E7FC6_1_0.eot?#iefix') format('embedded-opentype'),
+	url('fonts/2E7FC6_1_0.woff2') format('woff2'),
+	url('fonts/2E7FC6_1_0.woff') format('woff'),
+	url('fonts/2E7FC6_1_0.ttf') format('truetype');
+}
+

@@ -1,0 +1,54 @@
+.introduction
+{
+	padding-bottom: 5px;
+	margin-bottom: 40px;
+	min-width: $breakpointDesktop;
+
+	.content__section
+	{
+		margin-bottom: 0;
+		position: relative;
+	}
+
+	.pic
+	{
+		// background: #eee url(img/portrait.png) bottom 100px no-repeat;	
+		position: absolute;
+		bottom: -25px;
+		right: -150px;
+	}
+
+	h2
+	{
+		margin-bottom: 0;
+	}
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), 
+		only screen and (min-device-pixel-ratio: 2) {
+	.introduction .pic
+	{
+		// background: #eee url(img/portrait@2x.png) bottom right no-repeat;
+		// background-size: 633px 584px;
+		// background-position: 600px 0;
+	}
+	
+}
+
+@media only screen and (max-width: $breakpointTablet) {
+	.introduction
+	{
+		background: #eee;
+		min-height: 0;
+		min-width: 320px;
+		p
+		{
+			padding-right: 0!important;
+		}
+
+		.pic
+		{
+			display: none;
+		}
+	}
+}

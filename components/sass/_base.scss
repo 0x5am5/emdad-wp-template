@@ -1,0 +1,96 @@
+body
+{
+	font-family:$font-lt;
+	font-size: 18px;
+	margin: 0;
+	color: $base-font-color;
+	line-height: 1.4;
+	min-width: 320px;
+}
+
+*
+{
+	box-sizing:border-box;
+}
+
+@each $h in h1, h2, h3, h4, h5, h6 {
+	#{$h},
+	.#{$h} { 
+		margin: 0;
+		font-family: $font-bold;
+		font-weight: 400;
+	}
+
+	p + #{$h} {
+		margin-top: 40px;
+	}
+}
+
+h1,
+.h1
+{
+	font-size: 2.667rem;
+
+	.sub-head
+	{
+		display: block;
+		font-family: $font-lt;
+		font-size: 30px;
+		color: $grey;
+	}
+}
+
+h2,
+.h2
+{
+	margin-bottom: 10px;
+	font-size: 2.000rem;
+	font-family: $font-lt;
+	display: block;
+
+	.sub-head
+	{
+		color: $grey;
+	}
+}
+
+a:link
+{
+	color: $base-font-color;
+	text-decoration: none;
+}
+a:hover,
+a:focus
+{
+	color: $blue;
+	text-decoration: underline;
+}
+
+a:visited
+{
+	color: $orange;
+}
+
+p {
+	margin-bottom: 20px;
+}
+
+@media only screen and (max-width: $breakpointTablet) {
+	body
+	{
+		font-size: 14px;
+	}
+
+	h1,
+	.h1
+	{
+		font-size: 2.571rem;
+	}
+
+	h2,
+	.h2
+	{
+		font-size: 1.929rem;
+		margin-bottom: 20px;	
+	}
+}

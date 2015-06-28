@@ -14,23 +14,22 @@
 			$role = get_sub_field('role');
 			$intro = get_sub_field('intro');
 			$positioning = strtolower(get_sub_field('positioning'));
-			$offPage = strtolower(get_sub_field('off_page'));
+			$offPage = strtolower(get_sub_field('off_page'));	
 
 		?>
 		<div class="content__section main-section main-section--<?php echo $positioning; ?>" id="<?php echo strtolower($company[0]); ?>">
 			<div class="main-section__header">
 				<h2><?php echo $company[0]; ?> <span class="sub-head"><?php echo $company[1]; ?></span></h2>
 
-				<p>
-					<?php echo $intro; ?>
-				</p>
+				<?php echo $intro; ?>
 			</div><!-- .header -->
 
 			<?php if( have_rows('content') ): ?>
 				<?php while( have_rows('content') ): the_row();
 					$options = get_sub_field('image_options');
 					$paragraph = get_sub_field('paragraph');
-					$title = get_sub_field('title');				
+					$title = get_sub_field('title');
+					$offPage = $options[1];
 					?>
 					
 					<?php if ($title) { ?>
@@ -40,7 +39,7 @@
 						$leftRight = get_sub_field('left-right');
 						$image = get_sub_field('image');
 						?>						
-						<div class="media<?php if ($leftRight) { echo ' media--'.$leftRight.' '; } ?><?php echo $offPage; ?>">					
+						<div class="media main-section--img<?php if ($leftRight) { echo ' media--'.$leftRight.' '; } ?><?php echo $offPage; ?>">					
 							<img src="<?php echo $image['url']; ?>" class="media--img" alt="">		
 					<?php } ?>				
 
@@ -57,17 +56,25 @@
 		<?php endwhile; ?>
 
 	<?php endif; ?>
-
-	<?php
-		// Previous/next post navigation.
-		the_post_navigation( array(
-			'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'twentyfifteen' ) . '</span> ' .
-				'<span class="screen-reader-text">' . __( 'Next post:', 'twentyfifteen' ) . '</span> ' .
-				'<span class="post-title">%title</span>',
-			'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'twentyfifteen' ) . '</span> ' .
-				'<span class="screen-reader-text">' . __( 'Previous post:', 'twentyfifteen' ) . '</span> ' .
-				'<span class="post-title">%title</span>',
-		) ); 
-	?>
+	
+	<div class="content__section">
+		<nav>
+			<div class="next-nav grid">
+				<div class="col w-25">Next project</div>
+				<div class="next-nav__navigation col w-50">
+					<div class="next-nav__navigation--dir col w-20">
+						<a href="<?php get_previous_post_link(); ?>"><<span class="access">Previous</span></a>
+					</div>
+					<div class="col w-60">
+						Checkout Design
+					</div>
+					<div class="next-nav__navigation--dir col w-20">
+						<a href="<?php get_next_post_link(); ?>">><span class="access">Next</span></a>
+					</div>
+				</div>
+				<div class="col w-25"></div>
+			</div>
+		</nav>
+	</div>
 
 </div>

@@ -17,6 +17,7 @@ get_header(); ?>
 	<div class="content content--dark introduction" id="top">
 		<div class="content__section">
 			<?php the_content(); ?>
+			<img src="<?php echo bloginfo('template_directory'); ?>/img/portrait.png" alt="" class="pic">
 		</div>
 	</div>
 
@@ -169,10 +170,10 @@ get_header(); ?>
 								</a>
 								<blockquote cite="https://uk.linkedin.com/pub/emdad-rashid/b/98/100<?php echo $linkedinId; ?>">
 									<p>										
-										"<?php echo $quote; ?>""
+										"<?php echo $quote; ?>"
 									</p>
 									<p class="recommendations__view">
-										<a href="https://uk.linkedin.com/pub/emdad-rashid/b/98/100<?php echo $linkedinId; ?>" target="_blank">View in</a>  <img src="<?php echo get_template_directory_uri(); ?>/img/linkedin.png" alt="Linked In">
+										<a href="https://uk.linkedin.com/pub/emdad-rashid/b/98/100<?php echo $linkedinId; ?>" target="_blank">Read all</a>  <img src="<?php echo get_template_directory_uri(); ?>/img/linkedin.png" alt="Linked In">
 									</p>
 								</blockquote>							
 							</div>
@@ -206,6 +207,8 @@ get_header(); ?>
 						if (!preg_match('/http/', $link)) {
 							$original = $link;
 							$link = 'mailto:'.$link;
+						} else {
+							$link = $link.$linkedinId;
 						}
 						?>
 						<p><span class="contact--method"><?php echo $source; ?></span> <a href="<?php echo $link; ?>"><?php echo $original; ?></a></p>

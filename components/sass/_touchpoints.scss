@@ -1,0 +1,46 @@
+.touchpoints
+{
+	overflow: hidden;
+
+	img
+	{
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	&__img-wrap
+	{
+		padding-left: 5px;		
+	}
+}
+
+@media only screen and (max-width: $breakpointTablet) {
+	.touchpoints
+	{
+		&__img-wrap
+		{
+			padding-left: 0;
+			display: inline;
+			
+
+			img
+			{
+				display: none;
+			}
+		}
+
+		a {			
+			&:after
+			{
+				content: '>';
+				display: inline-block;
+				padding-left: 10px;
+				font-family: "AppleGothic";
+			}
+		}
+		li
+		{
+			margin-bottom: 20px;			
+		}
+	}
+}

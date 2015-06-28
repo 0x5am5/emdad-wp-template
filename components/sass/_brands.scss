@@ -1,0 +1,81 @@
+.brands
+{
+	img
+	{
+		max-width: 260px;
+		max-height: 40px;
+	}
+
+	h2
+	{
+		display: inline;
+	}
+
+	&__list
+	{
+		margin-top: 1em; 
+
+		li {
+			margin-bottom: 40px;
+		}
+	}
+
+	&__list-row
+	{
+		display: flex;
+    	justify-content: space-between;			
+	}
+}
+
+@media only screen and (max-width: $breakpointTablet) {
+	.brands
+	{
+		&__list
+		{
+			overflow: hidden;
+		}
+		&__list-row
+		{
+			display: block;
+
+			li {
+				width: 50%;
+				float: left;
+				text-align: center;
+
+				img
+				{
+					max-width: 100%;
+				}
+
+				&:nth-child(2n)
+				{
+					.brands--img-wrap
+					{
+						padding-right: 0;
+					}
+				}
+			}
+
+			&:nth-child(2n)
+			{
+				background: blue;
+				
+				li:nth-child(1n)
+				{
+					padding-right: 0;
+				}
+
+				li:nth-child(2n)
+				{
+					padding-right: 10px;
+				}
+			}
+		}
+
+		&--img-wrap
+		{
+			padding-right: 10px;
+		}
+	}
+}
