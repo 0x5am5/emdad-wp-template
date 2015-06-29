@@ -1,6 +1,6 @@
 .arrow
 {
-	background: url(img/sprites/arrow-hvr.png) no-repeat;
+	background: url(img/sprites/arrow-blk.png) no-repeat;
 	display: inline-block;
 	width: 23px;
 	height: 35px;
@@ -17,6 +17,11 @@
 	{
 		background: #eee url(img/img/sprites/arrow-hvr@2x.png) bottom right no-repeat;
 		background-size: 521px 562px;
+	}
+
+	.arrow
+	{
+		background: url(img/sprites/arrow-blk@2x.png) no-repeat;
 	}
 	
 }

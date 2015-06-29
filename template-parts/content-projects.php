@@ -3,12 +3,13 @@
 		$args = array(
 			'orderby'          => 'date',
 			'post_type'        => 'post',
-			'posts_per_page'   => 10
+			'posts_per_page'   => 10,
+			'category_name'    => 'projects'
 		);
 		$posts_array = get_posts( $args );
 		foreach ($posts_array as $post) : setup_postdata( $post ); 
-		$description = get_post_meta( $post->ID, 'Description', true ); ?>
-    		<li class="col w-33"><a href="<?php the_permalink(); ?>"><?php echo $description; ?></a></li>
+		$title = get_post_meta( $post->ID, 'Page Title', true ); ?>
+    		<li class="col w-33"><a href="<?php the_permalink(); ?>"><?php echo $title; ?></a></li>
     	<?php 
 		endforeach;
 		wp_reset_postdata();?>

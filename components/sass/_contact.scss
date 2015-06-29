@@ -11,6 +11,14 @@
 	{
 		margin-left: 20px;
 		word-break: break-all;
+		border-bottom: 1px solid #000;
+
+		&:hover,
+		&:focus
+		{
+			text-decoration: none;
+			border-bottom-color: $blue;
+		}
 	}
 }
 
@@ -19,13 +27,15 @@
 	{
 		&--method
 		{
-			width: 75px;
-			float: left;
+			width: auto;
+			display: block;
+			// display: block;
+			text-align: left;
 		}
 
 		a {
-			display: block;
-			padding-left: 80px;			
+			// padding-left: 80px;	
+			margin-left: 0;		
 		}
 
 		p

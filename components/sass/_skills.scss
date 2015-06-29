@@ -1,20 +1,23 @@
 .skills-mod
 {
 	overflow: hidden; 
+	margin-bottom: 60px;
 
 	&--main-link
 	{
-		padding: 10px 25px 10px 25px;
+		padding: 10px 15px 10px 30px;
 		display: block;
+		font-family: $font-rg;
 
-		// &:hover,
-		// &:focus 
-		// {
-		// 	.arrow
-		// 	{
-		// 		background: url(img/sprites/arrow.png) no-repeat;
-		// 	}
-		// }
+		&:hover,
+		&:focus 
+		{
+			.arrow
+			{
+				display: inline-block;
+			}
+			color: $blue;
+		}
 	}
 
 	&__skill
@@ -25,17 +28,24 @@
 
 	&--title
 	{		  
-		  transform: rotate(-90deg);		 
-		  transform-origin: top left;
-		  position: absolute;		 
-		  left: 0px;
-		  width: 300px;
-		  bottom: -8px;		 
+		z-index: 1;
+		transform: rotate(-90deg);		 
+		transform-origin: top left;
+		position: absolute;		 
+		left: 0;
+		width: 300px;
+		bottom: -7px;		 
 	}
 
 	&__img-hide
 	{
 		overflow: hidden;
+
+		img
+		{
+			opacity: .25;
+			transition: opacity $animationTime $animationStyle;
+		}
 		
 	}
 
@@ -55,12 +65,14 @@
 	{		
 		transition: transform 400ms ease;
 		transform-origin: 50% 50%;
+		background: url(img/sprites/arrow-hvr.png) no-repeat;
+		display: none;
 	}
 
 	&--arrow
 	{
 		position: absolute;
-		right: 35px;
+		right: 25px;
 		top: 140px;
 	}
 
@@ -84,6 +96,12 @@
 			.skills-mod__img-hide
 			{
 				width: 100%;
+
+				img
+				{
+					opacity: 1;
+					transition: opacity $animationTime $animationStyle;
+				}
 			}
 
 			.skills-mod--main-link
@@ -94,16 +112,13 @@
 			.arrow
 			{
 				display: inline-block;
-				// background: url(img/sprites/arrow-hvr.png) no-repeat;
 				transform:rotate(180deg);	
 				transition: transform $animationTime $animationStyle;
 			}
 
 			.skills-mod--title
 			{
-				font-weight: 700;
 				color: $blue;
-				bottom: -9px;
 			}
 
 			.skills-mod--arrow
@@ -134,6 +149,8 @@
 @media only screen and (max-width: $breakpointTablet) {
 	.skills-mod
 	{
+		margin-bottom: 0;
+		
 		&--main-link
 		{
 			padding: 0;
@@ -198,5 +215,17 @@
 		}
 
 
+	}
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), 
+		only screen and (min-device-pixel-ratio: 2) {
+
+	.skills-mod
+	{
+		.arrow
+		{
+			background: url(img/sprites/arrow-hvr@2x.png) no-repeat;
+		}
 	}
 }

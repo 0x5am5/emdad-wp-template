@@ -16,23 +16,24 @@
 		}
 	}
 
-	div:first-child
-	{
-		padding: 15px 0;
-	}
-
-
 	&__navigation 
 	{
 		overflow: hidden;
 		vertical-align: middle;
 		
-		&--dir a
+		&--dir a,
+		&--dir span
 		{
 			padding: 10px 15px;
 			background: #ccc;
 			font-family: 'AppleGothic';
 			display: inline-block;
+
+			&:hover,
+			&focus
+			{
+				text-decoration: none;
+			}
 		}
 	}
 
@@ -42,13 +43,11 @@
 			width: 60%;
 			float: left;
 			color: $grey;
-			padding: 15px 0;
 
 			&.next-nav__navigation--dir
 			{
 				width: 20%;
 				color: #000;
-				padding: 0;
 			}
 		}
 	}

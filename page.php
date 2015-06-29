@@ -31,7 +31,7 @@ get_header(); ?>
 					<h2 class="inline">Brands</h2> worked with
 				</span>
 				<div class="brands__list">
-					<ul class="brands__list-row list-inline">
+					<ul class="brands__list-row list-inline grid">
 						<?php while( have_rows('brands') ): the_row();
 							$image = get_sub_field('image');
 							$title = $image['alt'];
@@ -40,12 +40,12 @@ get_header(); ?>
 							}
 							$i ++;
 						?>
-						<li><div class="brands--img-wrap"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"></div></li>
+						<li class="col w-25"><div class="brands--img-wrap"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"></div></li>
 						
-						<?php if ($i == 5) : ?>
+						<?php if ($i == 4) : ?>
 							<?php $i = 0; // Creates new row?>
 					</ul>
-					<ul class="brands__list-row list-inline">
+					<ul class="brands__list-row list-inline grid">
 						<?php endif; ?>
 
 						<?php endwhile; ?>
@@ -91,16 +91,17 @@ get_header(); ?>
 						$text = get_sub_field('text');
 						$pageJump = get_sub_field('page_jump');
 						$image = get_sub_field('image');
-						$post_object = setup_postdata(get_field('post_object'));
-						$link = get_field('post_object');	
-						if ($pageJump) {				
-							$link = substr($link, 0, -1);
-							$link = $link.'#'.$pageJump;
+						$post = get_sub_field('page');	
+						setup_postdata($post);
+						if (!$pageJump) {				
+							$pageJump = '';
+						} else {
+							$pageJump = '#'.$pageJump;
 						}
 						$i++;
 						?>
 						<div class="skills-mod__skill col w-16">
-							<a href="<?php echo $link; ?>" class="skills-mod--main-link">
+							<a href="<?php the_permalink(); echo $pageJump; ?>" class="skills-mod--main-link">
 								<div class="skills-mod--title"><?php echo $text; ?></div>
 								<div class="skills-mod__img-hide">
 									<img src="<?php echo $image['url']; ?>" alt="" height="300px">
@@ -131,11 +132,11 @@ get_header(); ?>
 					<?php while( have_rows('touchpoints') ): the_row(); 
 						$text = get_sub_field('text');
 						$image = get_sub_field('image');
-						$post_object = setup_postdata(get_field('post_objects'));
-						$link = get_field('post_objects');	
+						$post = get_sub_field('page');	
+						setup_postdata( $post );
 						?>
 						<li class="col w-25">
-							<a href="<?php echo $link; ?>">
+							<a href="<?php the_permalink(); ?>">
 								<div class="touchpoints__img-wrap">							
 									<?php echo $text; ?>
 									<img src="<?php echo $image['url'] ?>" alt="">
@@ -151,8 +152,9 @@ get_header(); ?>
 
 		<?php if( have_rows('recommendations') ): ?>
 		<!-- Recommendations -->
-			<div class="content__section recommendations grid" id="recommendations">
+			<div class="content__section recommendations" id="recommendations">
 				<h2>Recommendations</h2>
+				<div class="grid">
 					<?php while( have_rows('recommendations') ): the_row(); 
 						$name = get_sub_field('name');
 						$job = get_sub_field('job');
@@ -162,30 +164,29 @@ get_header(); ?>
 						?>
 						<div class="recommendations__item w-33 col alpha">
 							<div class="pad">
-								<div class="recommendations--profile-pic">
-									<img src="<?php echo $image['url']; ?>" alt="">								
-								</div>
 								<a href="https://uk.linkedin.com/pub/emdad-rashid/b/98/100<?php echo $linkedinId; ?>" target="_blank" class="recommendations--person">
+									<div class="recommendations--profile-pic">
+										<img src="<?php echo $image['url']; ?>" alt="">								
+									</div>
 									<h3><?php echo $name; ?></h3>
 									<?php echo $job; ?>								
+									<blockquote cite="https://uk.linkedin.com/pub/emdad-rashid/b/98/100<?php echo $linkedinId; ?>">
+										<p>										
+											"<?php echo $quote; ?>"
+										</p>
+										<p class="recommendations__view">
+											<span>View in</span>  <img src="<?php echo get_template_directory_uri(); ?>/img/linkedin.png" alt="Linked In">
+										</p>
+									</blockquote>							
 								</a>
-								<blockquote cite="https://uk.linkedin.com/pub/emdad-rashid/b/98/100<?php echo $linkedinId; ?>">
-									<p>										
-										"<?php echo $quote; ?>"
-									</p>
-									<p class="recommendations__view">
-										<a href="https://uk.linkedin.com/pub/emdad-rashid/b/98/100<?php echo $linkedinId; ?>" target="_blank">Read all</a>  <img src="<?php echo get_template_directory_uri(); ?>/img/linkedin.png" alt="Linked In">
-									</p>
-								</blockquote>							
 							</div>
 						</div>
-						<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 					<?php endwhile; ?>
-				</ul>
+				</div>
+				<p class="recommendations--view-all">
+					<a href="https://uk.linkedin.com/pub/emdad-rashid/b/98/100<?php echo $linkedinId; ?>" class="button">View all recommendations</a>						
+				</p>
 			</div>
-			<p class="recommendations--view-all">
-				<a href="https://uk.linkedin.com/pub/emdad-rashid/b/98/100<?php echo $linkedinId; ?>" class="button">View all recommendations</a>						
-			</p>
 		<!-- Recommendations -->	
 		<?php endif; ?>
 
@@ -213,7 +214,6 @@ get_header(); ?>
 						}
 						?>
 						<p><span class="contact--method"><?php echo $source; ?></span> <a href="<?php echo $link; ?>"><?php echo $original; ?></a></p>
-						<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 					<?php endwhile; ?>
 				</ul>
 			</div>
