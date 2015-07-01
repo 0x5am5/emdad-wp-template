@@ -24,7 +24,7 @@
 	{
 		max-width: 960px;
 		margin: 0 auto;
-		margin-bottom: 40px;
+		margin-bottom: 60px;
 	}
 
 	&--dark
@@ -73,7 +73,7 @@ a.button {
 	}
 }
 
-@media only screen and (max-width: $breakpointTablet) {
+@media only screen and (max-width: ($breakpointTablet - 1) ) {
 	.content
 	{
 
@@ -85,12 +85,5 @@ a.button {
 		display: block;
 		text-align: center;
 		font-size: 1.286rem;
-	}
-
-	.js {
-		.content-wrap 
-		{
-			// padding-top: 50px;
-		}
 	}
 }

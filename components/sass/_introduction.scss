@@ -3,6 +3,7 @@
 	padding-bottom: 5px;
 	margin-bottom: 40px;
 	min-width: $breakpointDesktop;
+	padding-top: 110px;
 
 	.content__section
 	{
@@ -12,7 +13,6 @@
 
 	.pic
 	{
-		// background: #eee url(img/portrait.png) bottom 100px no-repeat;	
 		position: absolute;
 		bottom: -25px;
 		right: -150px;
@@ -24,6 +24,16 @@
 	}
 }
 
+@media only screen and (max-width: $breakpointDesktop) {
+	.introduction
+	{
+		.pic
+		{
+			right: -150px;
+  			width: 550px;	
+		}
+	}
+}
 @media only screen and (-webkit-min-device-pixel-ratio: 2), 
 		only screen and (min-device-pixel-ratio: 2) {
 	.introduction .pic
@@ -35,12 +45,14 @@
 	
 }
 
-@media only screen and (max-width: $breakpointTablet) {
+@media only screen and (max-width: ($breakpointTablet - 1) ) {
 	.introduction
 	{
 		background: #eee;
 		min-height: 0;
 		min-width: 320px;
+		padding-top: 140px;
+
 		p
 		{
 			padding-right: 0!important;

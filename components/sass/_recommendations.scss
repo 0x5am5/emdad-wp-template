@@ -26,7 +26,12 @@
 		font-size: 16px;
 		padding-top: 20px;
 		font-family: $font-rg;	
-		color: #000;					
+		color: #000;	
+
+		p 
+		{
+			min-height: 65px;
+		}				
 	}
 
 	&__item
@@ -53,10 +58,6 @@
 		}
 	}
 
-	&--view-all {
-		text-align: right;
-	}
-
 	&--person
 	{
 		margin-bottom: 20px;
@@ -64,12 +65,32 @@
 	}
 }
 
-@media only screen and (max-width: $breakpointTablet) {
+@media only screen and (max-width: $breakpointDesktop) {
 	.recommendations
 	{
-		// margin-bottom: 0;
-		font-size: 16px;
-		
+		font-size: 16px;		
+
+		h3
+		{
+			font-size: 16px;		
+		}
+
+		&--profile-pic
+		{
+			margin-bottom: 10px; 
+		}
+
+		blockquote
+		{
+			padding-top: 10px;
+		}
+	}
+}
+
+@media only screen and (max-width: ($breakpointTablet - 1) ) {
+	.recommendations
+	{
+
 		img {
 			width: auto;
 		}
@@ -77,17 +98,16 @@
 		blockquote
 		{
 			clear: left;
-			padding-top: 10px;
 
 			p 
 			{
 				margin-bottom: 10px;
+				min-height: 0;
 			}
 		}
 
 		h3
 		{
-			font-size: 16px;
 			font-family: $font-rg;
 			margin-bottom: 5px;
 		}
@@ -112,11 +132,6 @@
 			a {
 				text-decoration: underline; 
 			}
-		}
-
-		&--view-all
-		{
-			display: none;
 		}
 
 		&__item:last-child

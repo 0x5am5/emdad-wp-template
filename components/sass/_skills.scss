@@ -16,6 +16,11 @@
 			{
 				display: inline-block;
 			}
+
+			img
+			{
+				opacity: 1;				
+			}
 			color: $blue;
 		}
 	}
@@ -43,7 +48,7 @@
 
 		img
 		{
-			opacity: .25;
+			opacity: .50;
 			transition: opacity $animationTime $animationStyle;
 		}
 		
@@ -145,8 +150,51 @@
 		}
 	}
 }
+@media only screen and (max-width: $breakpointDesktop) {
+	.skills-mod
+	{
+		&__skill
+		{
+			padding: 0 15px 0 0;
+		}
 
-@media only screen and (max-width: $breakpointTablet) {
+		&__img-hide
+		{
+			// img 
+			// {
+				height: 213px;
+				// width: 78px 
+			// }
+		}
+
+		.arrow
+		{		
+			background: url(img/sprites/arrow-mid.png) no-repeat;
+		}
+
+		&--view-all
+		{
+			bottom: 10px;
+		}
+
+		// &--open
+		// {
+		// 	.skills-mod__skill--open
+		// 	{
+		// 		.skills-mod__img-hide
+		// 		{
+		// 	// 		width: 100%;
+
+		// 			img
+		// 			{
+		// 				height: 100%;
+		// 			}
+		// 		}
+		// 	}
+		// }
+	}
+}
+@media only screen and (max-width: ($breakpointTablet - 1) ) {
 	.skills-mod
 	{
 		margin-bottom: 0;
@@ -156,19 +204,56 @@
 			padding: 0;
 			margin-bottom: 20px;
 			display: inline;
+			position: relative;
 
 			&:after
 			{
-				content: '>';
+				content: '';
+				background: url(img/sprites/chevron.png) no-repeat;
 				display: inline-block;
-				padding-left: 10px;
-				font-family: "AppleGothic";
+				width: 11px;
+				height: 20px;
+				position: absolute;
+				top:-2px;
+				right: -20px;
+			}
+
+			&:hover,
+			&:focus 
+			{
+				.arrow
+				{
+					display: none;
+				}
 			}
 		}
 
 		&__skill
 		{
 			margin-bottom: 30px;
+
+			&:nth-child(odd)
+			{
+				.skills-mod__img-hide
+				{
+					padding-right: 20px;
+				}
+			}
+			.skills-mod__img-hide
+			{
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+
+				&:before 
+				{
+					content: '';
+					display: inline-block;
+					padding-top: 100%;
+				}
+			}
 		}
 
 		&--title
@@ -176,11 +261,6 @@
 			transform: none;
 			position: static;
 			display: inline;
-		}
-
-		&__img-hide
-		{
-			display: none;
 		}
 
 		&--open
@@ -214,7 +294,10 @@
 			display: none;
 		}
 
-
+		.col.w-16
+		{
+			width: 50%;
+		}
 	}
 }
 

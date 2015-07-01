@@ -33,16 +33,16 @@
 
 		&.media--left
 		{
-			margin-left: -35%;
+			margin-left: -33%;
 		}
 		&.media--right
 		{
-			margin-right: -35%;
+			margin-right: -33%;
 		}
 	}
 }
 
-@media only screen and (max-width: $breakpointTablet) {
+@media only screen and (max-width: ($breakpointTablet - 1) ) {
 	.main-section
 	{
 		&:not(.main-section__header)

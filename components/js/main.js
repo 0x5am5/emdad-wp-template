@@ -8,17 +8,20 @@ $j(function() {
 	var subMenuItems = $j('.sub-menu li');
 	var subMenuHrefs = subMenuItems.find('a').attr('href');
 	var subMenuArea = $j(subMenuHrefs);
+	var header = $j('.mod-header');
+	var isMoving;
 
-	$j('.mod-header').on('click', 'a', function(e) {
+	header.on('click', 'a', function(e) {
 
 		var currentTarget = $j(e.currentTarget);
 		var $mod = $j(e.delegateTarget);
-		var offset = templateTwo.length ? $mod.outerHeight() : '';
+		var offset = $mod.outerHeight();
 
-		if (!currentTarget[0].href.match(/http:/)) {
+		if ($j(e.currentTarget).is('.jump-link')) {
 			e.preventDefault();						
 		}
 
+		// to trigger dropdown
 		if(currentTarget.is('.dropdown')) {
 
 			var $target = $j('.' + $j(this).data('menu'));
@@ -30,11 +33,26 @@ $j(function() {
 		}	
 
 		var top = $j(currentTarget.attr('href')).position().top;
+		
 		$_b.animate({
 			scrollTop: top - offset
 		}, '500', 'swing');
 		
 	});
+
+	$_w.on('scroll', function() {
+
+		var top = $j(this).scrollTop();
+
+		if (top >= 1) {
+			isMoving = true;
+		} else {
+			isMoving = false;
+		}
+
+		header.toggleClass('sticky-header', isMoving);
+
+	})
 
 	// $_w.on('scroll', function() {
 	// 	subMenuArea.each(function() {
@@ -60,17 +78,17 @@ $j(function() {
 				var $target   = $j(e.currentTarget).parent();
 					$mod      = $j(e.delegateTarget),
 					isOpenSkill = $target.hasClass('skills-mod__skill--open'),
-					isArrow    = $j(e.target).is('.skills-mod--arrow') || $j(e.target).is('.arrow');
+					isView    = $j(e.target).is('.skills-mod--view-all');
 
 				$mod.removeClass('skills-mod--open').find('.skills-mod__skill--open').removeClass('skills-mod__skill--open');
 
 				// allow clicking through to skill and and not arrow.
-				if (isOpenSkill && !isArrow) return;
+				if (isView) return;
 
 				e.preventDefault();
 
 				// Return is clicking arrow to close.
-				if (isOpenSkill && isArrow) return;
+				if (isOpenSkill) return;
 				
 				$target.addClass('skills-mod__skill--open');
 				$mod.addClass('skills-mod--open')

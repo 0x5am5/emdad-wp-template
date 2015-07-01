@@ -36,7 +36,7 @@
 						<span class="main-section--title"><?php echo $title; ?></span>
 					<?php } ?>
 					<?php if ($options[0] && !$options[1]) { 
-						$leftRight = get_sub_field('left-right');
+						$leftRight = get_sub_field('left-right') || 'center';
 						$image = get_sub_field('image');
 						?>						
 						<p><?php echo $paragraph; ?></p>

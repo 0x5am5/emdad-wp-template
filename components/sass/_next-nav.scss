@@ -24,16 +24,14 @@
 		&--dir a,
 		&--dir span
 		{
-			padding: 10px 15px;
-			background: #ccc;
-			font-family: 'AppleGothic';
+			content: '';
+			background: url(img/sprites/chevron.png) no-repeat;
 			display: inline-block;
-
-			&:hover,
-			&focus
-			{
-				text-decoration: none;
-			}
+			width: 11px;
+			height: 20px;
+			position: absolute;
+			top:-2px;
+			right: -20px;
 		}
 	}
 
@@ -53,7 +51,7 @@
 	}
 }
 
-@media only screen and (max-width: $breakpointTablet) {
+@media only screen and (max-width: ($breakpointTablet - 1) ) {
 	.next-nav
 	{
 

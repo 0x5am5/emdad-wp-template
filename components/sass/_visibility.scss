@@ -27,7 +27,7 @@
 	}
 }
 
-@media only screen and (max-width: $breakpointTablet) {
+@media only screen and (max-width: ($breakpointTablet - 1) ) {
 	.show
 	{
 		&--sml

@@ -175,7 +175,7 @@ get_header(); ?>
 											"<?php echo $quote; ?>"
 										</p>
 										<p class="recommendations__view">
-											<span>View in</span>  <img src="<?php echo get_template_directory_uri(); ?>/img/linkedin.png" alt="Linked In">
+											<span>Read on</span>  <img src="<?php echo get_template_directory_uri(); ?>/img/linkedin.png" alt="Linked In">
 										</p>
 									</blockquote>							
 								</a>
@@ -183,9 +183,6 @@ get_header(); ?>
 						</div>
 					<?php endwhile; ?>
 				</div>
-				<p class="recommendations--view-all">
-					<a href="https://uk.linkedin.com/pub/emdad-rashid/b/98/100<?php echo $linkedinId; ?>" class="button">View all recommendations</a>						
-				</p>
 			</div>
 		<!-- Recommendations -->	
 		<?php endif; ?>

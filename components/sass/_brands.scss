@@ -27,7 +27,20 @@
 	}
 }
 
-@media only screen and (max-width: $breakpointTablet) {
+@media only screen and (max-width: $breakpointDesktop) {
+	.brands
+	{
+		&__list-row
+		{
+			li
+			{
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: ($breakpointTablet - 1) ) {
 	.brands
 	{
 		&__list

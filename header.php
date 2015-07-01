@@ -35,7 +35,7 @@ if ( is_front_page() && is_home() ) {
 <div id="page" class="hfeed site<?php if ($blogPage) { ?> template-two<?php } ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'emdad' ); ?></a>
 
-	<header id="masthead" class="site-header mod-header content<?php if (!$blogPage) { ?> content--dark<?php } elseif ($blogPage) { echo ' header--sticky'; } ?>" role="banner">
+	<header id="masthead" class="site-header mod-header content header--sticky<?php if (!$blogPage) { ?> content--dark<?php } ?>" role="banner">
 		<div class="content__section">
 			<div class="header__main-content header__main-content--open">
 				<h1>
@@ -46,11 +46,11 @@ if ( is_front_page() && is_home() ) {
 				</h1>
 				<nav role="navigation">
 					<ul class="main-nav list-inline">
-						<li><a href="<?php if ($blogPage) { echo get_settings("home"); } ?>#top">Home</a></li>
-						<li<?php if ($blogPage) { echo ' class="active"'; } ?>><a href="#projects"<?php if ($blogPage) { echo ' class="dropdown"'; } ?> data-menu="projects-menu">Projects</a></li>
-						<li><a href="<?php if ($blogPage) { echo get_settings("home"); } ?>#skills">Skills</a></li>
-						<li><a href="<?php if ($blogPage) { echo get_settings("home"); } ?>#touchpoints">Touchpoints</a></li>
-						<li><a href="<?php if ($blogPage) { echo get_settings("home"); } ?>#contact">Contact</a></li>
+						<li><a href="<?php if ($blogPage) { echo get_settings("home"); } ?>#top"<?php if (!$blogPage) { echo ' class="jump-link"'; } ?>>Home</a></li>
+						<li<?php if ($blogPage) { echo ' class="active"'; } ?>><a href="#projects"<?php if ($blogPage) { echo ' class="dropdown"'; } else { echo ' class="jump-link"'; } ?> data-menu="projects-menu">Projects</a></li>
+						<li><a href="<?php if ($blogPage) { echo get_settings("home"); } ?>#skills"<?php if (!$blogPage) { echo ' class="jump-link"'; } ?>>Skills</a></li>
+						<li><a href="<?php if ($blogPage) { echo get_settings("home"); } ?>#touchpoints"<?php if (!$blogPage) { echo ' class="jump-link"'; } ?>>Touchpoints</a></li>
+						<li><a href="<?php if ($blogPage) { echo get_settings("home"); } ?>#contact"<?php if (!$blogPage) { echo ' class="jump-link"'; } ?>>Contact</a></li>
 					</ul>
 				</nav>	
 			</div>
