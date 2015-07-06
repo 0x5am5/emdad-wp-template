@@ -4,6 +4,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-autoprefixer');
 
   grunt.initConfig({
@@ -29,6 +30,13 @@ module.exports = function(grunt) {
       }
     },
 
+    copy: {
+      files: {
+        src: 'components/js/*.js',           // copy all files and subfolders
+        dest: 'js/scripts.js',    // destination folder
+      }
+    },
+
     autoprefixer: {
       options: {
         browsers: ['last 2 versions']
@@ -45,7 +53,7 @@ module.exports = function(grunt) {
       options: { livereload: true },
       scripts: {
         files: ['components/js/*.js'],
-        tasks: ['uglify']        
+        tasks: ['copy']        
       },
       css : {
         files: ['components/**/*'],

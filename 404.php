@@ -7,11 +7,9 @@
 
 get_header(); ?>
 
-	<div class="content">
-		<div class="content__section brands" id="brands">
-			
-			<h2>Sorry this page has not been found!</h2>
-
+	<div class="content content-wrap" id="top">
+		<div class="content_section">
+			<h2>Sorry this page has not been found!</h2>				
 		</div>
 	</div>
 
