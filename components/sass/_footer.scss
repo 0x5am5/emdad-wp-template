@@ -19,6 +19,11 @@
 		text-decoration: underline;
 		color: #fff;
 	}
+
+	&--pipe
+	{
+		padding: 0 10px;
+	}
 }
 
 @media only screen and (max-width: ($breakpointTablet - 1) ) {

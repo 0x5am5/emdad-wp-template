@@ -10,6 +10,7 @@ $j(function() {
 	var subMenuArea = $j(subMenuHrefs);
 	var header = $j('.mod-header');
 	var isMoving;
+	var padTop = $j('#top').css('padding-top');
 
 	header.on('click', 'a', function(e) {
 
@@ -18,12 +19,23 @@ $j(function() {
 		var offset = $mod.outerHeight();
 
 		if ($j(e.currentTarget).is('.jump-link')) {
-			e.preventDefault();						
+			e.preventDefault();	
+			var top = $j(currentTarget.attr('href')).position().top;	
+
+			$_b.animate({
+				scrollTop: top - (offset + 40)
+			}, '500', 'swing');
+
+			if (currentTarget.parents('.second-nav').length) {
+				currentTarget.parent().siblings().removeClass('active');
+				currentTarget.parent().addClass('active');
+			}
+
+			return;				
 		}
 
 		// to trigger dropdown
 		if(currentTarget.is('.dropdown')) {
-
 			var $target = $j('.' + $j(this).data('menu'));
 
 			$target.slideToggle(400);
@@ -31,14 +43,12 @@ $j(function() {
 
 			return;
 		}	
-
-		var top = $j(currentTarget.attr('href')).position().top;
-		
-		$_b.animate({
-			scrollTop: top - offset
-		}, '500', 'swing');
 		
 	});
+
+	// $('input[name="redirect_to"]').val($('page-id').text());
+
+	// var items = $j(subMenuHrefs).position().top;
 
 	$_w.on('scroll', function() {
 
@@ -51,6 +61,13 @@ $j(function() {
 		}
 
 		header.toggleClass('sticky-header', isMoving);
+
+		// items.each(function() {
+		// 	if (top >= items[i]) {
+		// 		subMenuItems.removeClass('active');
+		// 		items[i].addClass('active');
+		// 	}
+		// })
 
 	})
 

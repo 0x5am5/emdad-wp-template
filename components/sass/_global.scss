@@ -33,6 +33,8 @@
 	}
 }
 
+
+
 .skip-link {
 	position: absolute;
 	left: -9999px;
@@ -55,6 +57,16 @@
 	}
 }
 
+.single-post .content-wrap
+{
+	padding-top: 160px;
+
+	&.extended-header
+	{
+		padding-top: 180px;	
+	}
+}
+
 .button,
 a.button {		
 	padding: 10px 15px;
@@ -73,6 +85,14 @@ a.button {
 	}
 }
 
+@media only screen and (max-width: $breakpointDesktop) {
+	.single-post .content-wrap
+	{
+		padding-top: 130px;
+	}
+
+}
+
 @media only screen and (max-width: ($breakpointTablet - 1) ) {
 	.content
 	{
@@ -85,5 +105,15 @@ a.button {
 		display: block;
 		text-align: center;
 		font-size: 1.286rem;
+	}
+
+	.single-post .content-wrap
+	{
+		padding-top: 180px;
+
+		&.extended-header
+		{
+			padding-top: 230px;
+		}
 	}
 }

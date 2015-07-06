@@ -1,5 +1,7 @@
 .brands
 {
+	overflow: hidden;
+
 	img
 	{
 		max-width: 100%;
@@ -9,6 +11,12 @@
 	h2
 	{
 		display: inline;
+	}
+
+	.grid
+	{
+		overflow: visible;
+		clear: both;
 	}
 
 	&__list
@@ -24,6 +32,11 @@
 	&--img-wrap
 	{
 		padding: 0 20px;
+	}
+
+	.sml-img
+	{
+		margin-top: -5px;
 	}
 }
 
@@ -45,7 +58,7 @@
 	{
 		&__list
 		{
-			overflow: hidden;
+			// overflow: hidden;
 		}
 		&__list-row
 		{
@@ -65,7 +78,7 @@
 
 		&--img-wrap
 		{
-			padding: 0;
+			padding: 0 20px;
 		}
 	}
 }

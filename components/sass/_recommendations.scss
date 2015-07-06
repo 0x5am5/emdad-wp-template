@@ -10,11 +10,11 @@
 		font-size: 20px;
 	}
 
+		// text-decoration: none;
 	a:hover,
 	a:focus
 	{		
 		font-family: $font-lt;
-		text-decoration: none;
 
 		.recommendations__view span {
 			text-decoration: underline;
@@ -28,7 +28,7 @@
 		font-family: $font-rg;	
 		color: #000;	
 
-		p 
+		p:not(.recommendations__view)
 		{
 			min-height: 65px;
 		}				
@@ -36,7 +36,7 @@
 
 	&__item
 	{
-		margin-bottom: 10px;
+		// margin-bottom: 10px;
 	}
 
 	&--profile-pic
@@ -49,6 +49,7 @@
 	{
 		text-align: right;
 		font-family: $font-lt;
+		margin: 0;
 
 		img
 		{
@@ -61,7 +62,6 @@
 	&--person
 	{
 		margin-bottom: 20px;
-		display: block;
 	}
 }
 
@@ -108,7 +108,6 @@
 
 		h3
 		{
-			font-family: $font-rg;
 			margin-bottom: 5px;
 		}
 

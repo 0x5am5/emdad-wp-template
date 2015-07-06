@@ -49,7 +49,7 @@
 		img
 		{
 			opacity: .50;
-			transition: opacity $animationTime $animationStyle;
+			transition: opacity $animationTime/2 $animationStyle;
 		}
 		
 	}
@@ -88,6 +88,18 @@
 			width: 0;
 		}
 
+		.skills-mod--main-link
+		{
+			&:hover,
+			&:focus
+			{
+				.arrow 
+				{
+					display: none;
+				}
+			}
+		}
+
 		.skills-mod__skill
 		{
 			width: 9%;	
@@ -112,6 +124,15 @@
 			.skills-mod--main-link
 			{
 				padding-right: 0;
+
+				&:hover,
+				&:focus 
+				{
+					.arrow
+					{
+						display: inline-block;
+					}
+				}
 			}
 
 			.arrow
@@ -162,15 +183,30 @@
 		{
 			// img 
 			// {
-				height: 213px;
+				height: 250px;
 				// width: 78px 
 			// }
 		}
 
-		.arrow
-		{		
-			background: url(img/sprites/arrow-mid.png) no-repeat;
+		&--open
+		{
+			.skills-mod__skill--open
+			{
+				.skills-mod--arrow
+				{		
+					padding-top: 120px;
+		  			padding-bottom: 120px;
+		  			right: 25px;
+				}				
+			}
 		}
+
+		&--arrow
+		{
+			top: 120px;
+			right: 35px;
+		}
+
 
 		&--view-all
 		{
@@ -199,24 +235,128 @@
 	{
 		margin-bottom: 0;
 		
+		
+
+		// &__skill
+		// {
+		// 	margin-bottom: 30px;
+
+		// 	&:nth-child(odd)
+		// 	{
+		// 		.skills-mod__img-hide
+		// 		{
+		// 			padding-right: 20px;
+		// 		}
+		// 	}
+		// 	.skills-mod__img-hide
+		// 	{
+		// 		position: absolute;
+		// 		top: 0;
+		// 		bottom: 0;
+		// 		left: 0;
+		// 		right: 0;
+
+		// 		&:before 
+		// 		{
+		// 			content: '';
+		// 			display: inline-block;
+		// 			padding-top: 100%;
+		// 		}
+		// 	}
+		// }
+
+		// &--title
+		// {
+		// 	transform: none;
+		// 	position: static;
+		// 	display: inline;
+		// }
+
+		// &--open
+		// {
+		// 	.skills-mod__skill 
+		// 	{
+		// 		width: 100%;
+		// 	}
+		// 	.skills-mod__skill--open
+		// 	{
+		// 		width: auto;
+				
+		// 		.skills-mod--title
+		// 		{
+		// 			font-weight: inherit;
+		// 			color: inherit;
+		// 		}
+
+		// 		.skills-mod--view-all {
+		// 			display: none;
+		// 		}
+
+		// 		.arrow
+		// 		{
+		// 			display: none;
+		// 		}
+		// 	}
+		// }
+		// .arrow 
+		// {
+		// 	display: none;
+		// }
+
+		.col.w-16
+		{
+			width: 50%;
+		}
+
+		&--title
+		{
+			transform: none;
+			bottom: 0;
+			padding: 3px;
+			background: rgba(255, 255, 255, .5);
+			text-align: center;
+			right: 0;
+  			width: auto;
+			// position: static;
+			// display: inline;
+		}
+
+		&__skill 
+		{
+			padding: 0 0 0 10px;
+			margin-bottom: 20px;
+			
+			&:nth-child(odd)
+			{
+				
+				padding-left: 0;
+				padding-right: 10px;
+			}
+		}
+
+		&__img-hide
+		{
+			height: 170px;
+		}
+
 		&--main-link
 		{
 			padding: 0;
-			margin-bottom: 20px;
-			display: inline;
 			position: relative;
+			// margin-bottom: 20px;
+			// display: inline;
 
-			&:after
-			{
-				content: '';
-				background: url(img/sprites/chevron.png) no-repeat;
-				display: inline-block;
-				width: 11px;
-				height: 20px;
-				position: absolute;
-				top:-2px;
-				right: -20px;
-			}
+			// &:after
+			// {
+			// 	content: '';
+			// 	background: url(img/sprites/chevron.png) no-repeat;
+			// 	display: inline-block;
+			// 	width: 11px;
+			// 	height: 20px;
+			// 	position: absolute;
+			// 	top:-2px;
+			// 	right: -20px;
+			// }
 
 			&:hover,
 			&:focus 
@@ -226,77 +366,6 @@
 					display: none;
 				}
 			}
-		}
-
-		&__skill
-		{
-			margin-bottom: 30px;
-
-			&:nth-child(odd)
-			{
-				.skills-mod__img-hide
-				{
-					padding-right: 20px;
-				}
-			}
-			.skills-mod__img-hide
-			{
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				right: 0;
-
-				&:before 
-				{
-					content: '';
-					display: inline-block;
-					padding-top: 100%;
-				}
-			}
-		}
-
-		&--title
-		{
-			transform: none;
-			position: static;
-			display: inline;
-		}
-
-		&--open
-		{
-			.skills-mod__skill 
-			{
-				width: 100%;
-			}
-			.skills-mod__skill--open
-			{
-				width: auto;
-				
-				.skills-mod--title
-				{
-					font-weight: inherit;
-					color: inherit;
-				}
-
-				.skills-mod--view-all {
-					display: none;
-				}
-
-				.arrow
-				{
-					display: none;
-				}
-			}
-		}
-		.arrow 
-		{
-			display: none;
-		}
-
-		.col.w-16
-		{
-			width: 50%;
 		}
 	}
 }

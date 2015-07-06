@@ -11,8 +11,6 @@ get_header(); ?>
 
 	<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
-	<?php// the_post_navigation(); ?>
-
 	<div class="content footer">
 		<?php get_footer(); ?>
 	</div>

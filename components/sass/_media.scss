@@ -35,13 +35,28 @@
 	.media
 	{
 		padding: 0 10px;
-		font-size: 1.143rem;
+		font-size: 16px;
 
 		&--img
 		{
 			width: 50%;
 			padding-right: 10px;
 			margin-right: 10px;
+		}
+
+		&--right
+		{
+			.media--img
+			{
+				margin-right: -40%;
+			}
+		}
+		&--left
+		{
+			.media--img
+			{
+				margin-left: -40%;
+			}
 		}
 	}
 

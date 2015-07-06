@@ -11,12 +11,28 @@
 	}
 }
 
+.icon
+{
+	&--chevron
+	{
+		background: url(img/sprites/chevron.png) no-repeat;
+		display: inline-block;
+		width: 11px;
+		height: 20px;
+	}
+
+	&.chevron--left
+	{
+		transform: rotate(180deg);
+	}
+}
+
 @media only screen and (-webkit-min-device-pixel-ratio: 2), 
 		only screen and (min-device-pixel-ratio: 2) {
 	.introduction
 	{
-		background: #eee url(img/img/sprites/arrow-hvr@2x.png) bottom right no-repeat;
-		background-size: 521px 562px;
+		// background: #eee url(img/sprites/arrow-hvr@2x.png) bottom right no-repeat;
+		// background-size: 521px 562px;
 	}
 
 	.arrow

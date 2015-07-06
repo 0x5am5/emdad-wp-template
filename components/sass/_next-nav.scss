@@ -21,31 +21,28 @@
 		overflow: hidden;
 		vertical-align: middle;
 		
-		&--dir a,
-		&--dir span
-		{
-			content: '';
-			background: url(img/sprites/chevron.png) no-repeat;
-			display: inline-block;
-			width: 11px;
-			height: 20px;
-			position: absolute;
-			top:-2px;
-			right: -20px;
-		}
-	}
-
-	&__navigation {
-
 		> div {
 			width: 60%;
 			float: left;
-			color: $grey;
+			a 
+			{
+				color: $grey;				
+			}
 
 			&.next-nav__navigation--dir
 			{
 				width: 20%;
 				color: #000;
+
+				a,
+				span 
+				{
+					  width: 50px;
+					  height: 50px;
+					  background-color: #ccc;
+					  display: inline-block;
+					  text-align: center;
+				}
 			}
 		}
 	}

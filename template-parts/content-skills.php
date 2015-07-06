@@ -4,7 +4,7 @@
 			'orderby'          => 'date',
 			'post_type'        => 'post',
 			'posts_per_page'   => 100,
-			'category_name'    => 'Projects'
+			'category_name'    => 'Skills'
 		);
 		$posts_array = get_posts( $args );
 		foreach ($posts_array as $post) : setup_postdata( $post ); 
