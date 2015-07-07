@@ -11,8 +11,6 @@
 ?>
 
 <div class="content content-wrap<?php if (count(get_field('section')) > 1) { echo ' extended-header'; } ?>" id="top">
-	<?php the_content(); ?>
-
 	<?php global $current_user;
       		get_currentuserinfo();       		
     if ($current_user->caps) { ?>
@@ -120,42 +118,67 @@
 				</div>
 			</nav>
 		</div>
-	<?php } else if ($_GET['dev']==true) { ?>
-		<h2>Request Password</h2>
-		<p>
-			Hi!<br>
-			Thanks for visitng my portfolio. Due to the confidential nature of some of my work I need to hide it behind a password.
-		</p>
-		<p>
-			Please contact me on the email below or fill out the form to let me know you are so that I can provide you with a password to view my portfolio.
-		</p>
-		<p>
-			Sorry for the inconvenience!
-		</p>
-		<p>
-			<a href="mailto:emdad@3dux.co.uk">emdad@3dux.co.uk</a>
-		</p>
+	<?php } else { ?>
+		<div class="content__section">
+			
+				<p>Enter</p>
 
-		<hr class="or-rule">
+				<form action="http://www.3dux.co.uk/wp-login.php" method="post">
+					<div class="form-row">
+						<label for="log">Username</label>
+						<input type="text" name="log" id="log" value=""> 			
+					</div>
+					<div class="form-row">
+						<label for="pwd">Password</label>
+						<input type="password" name="pwd" id="pwd"> 						
+					</div>
+					<div class="form-row">
+						<input type="submit" name="submit" value="Log In" class="button">						
+					</div>
+					<div class="form-row">
+						<label for="rememberme">Remember me</label>
+						<input name="rememberme" id="rememberme" type="checkbox" checked="checked" value="forever">						
+					</div>						
+					<input type="hidden" name="redirect_to" value="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>">
+				</form>
 
-		<p>Fill out the form below</p>
+				<h2>Request Password</h2>
+				<p>
+					Hi!<br>
+					Thanks for visitng my portfolio. Due to the confidential nature of some of my work I need to hide it behind a password.
+				</p>
+				<p>
+					Please contact me on the email below or fill out the form to let me know you are so that I can provide you with a password to view my portfolio.
+				</p>
+				<p>
+					Sorry for the inconvenience!
+				</p>
+				<p>
+					<a href="mailto:emdad@3dux.co.uk">emdad@3dux.co.uk</a>
+				</p>
 
-		<form name="contact-form" action="http://samgregorydigital.co.uk/mail/emdad/contact-request.php" method="post">
-			<div class="form-row">
-				<label for="full-name">Name</label>
-				<input type="text" id="full-name" name="full-name" required>
-			</div>
-			<div class="form-row">
-				<label for="organisation">Organisation</label>
-				<input type="text" id="organisation" name="organisation" required>
-			</div>
-			<div class="form-row">
-				<label for="email">Email</label>
-				<input type="text" id="email" name="email" required>
-			</div>
-			<div class="form-row">
-				<button type="submit">Send</button>
-			</div>
-		</form>
+				<hr class="or-rule">
+
+				<p>Fill out the form below</p>
+
+				<form name="contact-form" action="http://samgregorydigital.co.uk/mail/emdad/contact-request.php" method="post">
+					<div class="form-row">
+						<label for="full-name">Name</label>
+						<input type="text" id="full-name" name="full-name" required>
+					</div>
+					<div class="form-row">
+						<label for="organisation">Organisation</label>
+						<input type="text" id="organisation" name="organisation" required>
+					</div>
+					<div class="form-row">
+						<label for="email">Email</label>
+						<input type="text" id="email" name="email" required>
+					</div>
+					<div class="form-row">
+						<button type="submit">Send</button>
+					</div>
+				</form>
+			
+		</div>
 	<?php } ?>
 </div>

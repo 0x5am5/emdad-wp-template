@@ -1,0 +1,49 @@
+input
+{
+	padding: 10px;
+	background: #e1e1e1;
+	border: 1px solid #000;
+	width: 250px;
+	font-size: 18px;
+}
+
+button[type="submit"],
+input[type="submit"]
+{
+	background: $blue;
+	color: #fff;
+	font-family: $font-rg;
+	appearance: none;
+	border: 0;
+  	padding: 15px 10px;
+  	width: 250px;
+  	font-size: 18px;
+
+  	&:hover 
+  	{
+  		cursor: pointer;
+  	}
+}
+
+label
+{
+	display: block;
+	margin-bottom: 15px;
+}
+
+.form-row {
+	margin-bottom: 30px;
+}
+
+@media only screen and (max-width: ($breakpointTablet - 1) ) {
+	input
+	{
+		width: 100%;
+	}
+
+	button[type="submit"],
+	input[type="submit"]
+	{
+		width: 100%;
+	}
+}

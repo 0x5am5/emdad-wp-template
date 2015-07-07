@@ -46,6 +46,9 @@ while ($my_query->have_posts()) {
   $firstProject = get_permalink();
 }
 
+global $current_user;
+get_currentuserinfo(); 
+
 ?><!DOCTYPE html>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
@@ -73,8 +76,8 @@ while ($my_query->have_posts()) {
 				<nav role="navigation">
 					<ul class="main-nav list-inline">
 						<li><a href="<?php if ($blogPage) { bloginfo('url'); } ?>#top"<?php if (!$blogPage) { echo ' class="jump-link"'; } ?>>Home</a></li>
-						<li<?php if ($page == 'Projects') { echo ' class="active"'; } ?>><a href="<?php if ($page == 'Projects') { echo '#'; } else if ($blogPage) { echo $firstProject; } else { echo '#projects'; } ?>"<?php if ($page == 'Projects') { echo ' class="dropdown" data-menu="projects-menu"'; } else if (!$blogPage) { echo ' class="jump-link"'; } ?>>Projects</a></li>
-						<li<?php if ($page == 'Skills') { echo ' class="active"'; } ?>><a href="<?php if ($page == 'Skills') { echo '#'; } else if ($blogPage) { echo $firstSkill; } else { echo '#skills'; } ?>"<?php if ($page == 'Skills') { echo ' class="dropdown" data-menu="projects-menu"'; } else if (!$blogPage) { echo ' class="jump-link"'; }?>>Skills</a></li>
+						<li<?php if ($page == 'Projects' && $current_user->caps) { echo ' class="active"'; } ?>><a href="<?php if ($page == 'Projects') { echo '#'; } else if ($blogPage) { echo $firstProject; } else { echo '#projects'; } ?>"<?php if ($page == 'Projects') { echo ' class="dropdown" data-menu="projects-menu"'; } else if (!$blogPage) { echo ' class="jump-link"'; } ?>>Projects</a></li>
+						<li<?php if ($page == 'Skills' && $current_user->caps) { echo ' class="active"'; } ?>><a href="<?php if ($page == 'Skills') { echo '#'; } else if ($blogPage) { echo $firstSkill; } else { echo '#skills'; } ?>"<?php if ($page == 'Skills') { echo ' class="dropdown" data-menu="projects-menu"'; } else if (!$blogPage) { echo ' class="jump-link"'; }?>>Skills</a></li>
 						<li><a href="<?php if ($blogPage) { bloginfo('url'); } ?>#touchpoints"<?php if (!$blogPage) { echo ' class="jump-link"'; } ?>>Touchpoints</a></li>
 						<li><a href="<?php if ($blogPage) { bloginfo('url'); } ?>#contact"<?php if (!$blogPage) { echo ' class="jump-link"'; } ?>>Contact</a></li>
 					</ul>
