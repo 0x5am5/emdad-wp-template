@@ -12,7 +12,7 @@
 
 <div class="content content-wrap<?php if (count(get_field('section')) > 1) { echo ' extended-header'; } ?>" id="top">
 	<?php the_content(); ?>
-	
+
 	<?php global $current_user;
       		get_currentuserinfo();       		
     if ($current_user->caps) { ?>
@@ -120,5 +120,42 @@
 				</div>
 			</nav>
 		</div>
+	<?php } else if ($_GET['dev']==true) { ?>
+		<h2>Request Password</h2>
+		<p>
+			Hi!<br>
+			Thanks for visitng my portfolio. Due to the confidential nature of some of my work I need to hide it behind a password.
+		</p>
+		<p>
+			Please contact me on the email below or fill out the form to let me know you are so that I can provide you with a password to view my portfolio.
+		</p>
+		<p>
+			Sorry for the inconvenience!
+		</p>
+		<p>
+			<a href="mailto:emdad@3dux.co.uk">emdad@3dux.co.uk</a>
+		</p>
+
+		<hr class="or-rule">
+
+		<p>Fill out the form below</p>
+
+		<form name="contact-form" action="http://samgregorydigital.co.uk/mail/emdad/contact-request.php" method="post">
+			<div class="form-row">
+				<label for="full-name">Name</label>
+				<input type="text" id="full-name" name="full-name" required>
+			</div>
+			<div class="form-row">
+				<label for="organisation">Organisation</label>
+				<input type="text" id="organisation" name="organisation" required>
+			</div>
+			<div class="form-row">
+				<label for="email">Email</label>
+				<input type="text" id="email" name="email" required>
+			</div>
+			<div class="form-row">
+				<button type="submit">Send</button>
+			</div>
+		</form>
 	<?php } ?>
 </div>
