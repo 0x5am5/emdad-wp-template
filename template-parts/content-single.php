@@ -34,30 +34,59 @@
 						$paragraph = get_sub_field('paragraph');
 						$title = get_sub_field('title');
 						$offPage = $options[1];
+						$col = get_sub_field('two_col');
 						?>
 						
-						<?php if ($title) { ?>
-							<span class="main-section--title"><?php echo $title; ?></span>
-						<?php } ?>
-						<?php if ($options[0] && !$options[1]) { 
-							$leftRight = get_sub_field('left-right');
-							$image = get_sub_field('image');
-							?>						
-							<p><?php echo $paragraph; ?></p>
-							<div class="media main-section--img<?php if ($leftRight) { echo ' media--'.$leftRight.' '; } ?><?php echo $offPage; ?>">					
-								<img src="<?php echo $image['url']; ?>" class="media--img" alt="">	
-						<?php } else if ($options[0] && $options[1]) { 
-							$leftRight = get_sub_field('left-right');
-							$image = get_sub_field('image');
-							?>						
-							<div class="media main-section--img<?php if ($leftRight) { echo ' media--'.$leftRight.' '; } ?><?php echo $offPage; ?>">					
-								<img src="<?php echo $image['url']; ?>" class="media--img" alt="">	
-							<?php echo $paragraph; ?>
-						<?php } else { ?>				
-
-							<p>
+						<?php if ($col[0] != 'yes') { ?>
+							<?php if ($title) { ?>
+								<span class="main-section--title"><?php echo $title; ?></span>
+							<?php } ?>
+							<?php if ($options[0] && !$options[1]) { 
+								$leftRight = get_sub_field('left-right');
+								$image = get_sub_field('image');												
+								?>						
+								<p><?php echo $paragraph; ?></p>
+								<div class="media main-section--img<?php if ($leftRight) { echo ' media--'.$leftRight.' '; } ?><?php echo $offPage; ?>">					
+									<img src="<?php echo $image['url']; ?>" class="media--img" alt="">	
+							<?php } else if ($options[0] && $options[1]) { 
+								$leftRight = get_sub_field('left-right');
+								$image = get_sub_field('image');
+								?>						
+								<div class="media main-section--img<?php if ($leftRight) { echo ' media--'.$leftRight.' '; } ?><?php echo $offPage; ?>">					
+									<img src="<?php echo $image['url']; ?>" class="media--img" alt="">	
 								<?php echo $paragraph; ?>
-							</p>
+							<?php } else { ?>				
+
+								<p>
+									<?php echo $paragraph; ?>
+								</p>
+
+							<?php } ?>
+
+						<?php } else { ?>
+
+							<?php
+								$content = get_sub_field('text');
+								$image = get_sub_field('image');
+
+								if (!$content) {
+									$content = '<img src="'.$image['url'].'" alt="">';
+								}
+
+							?>
+
+							<div class="grid">
+								<div class="col w-50 alpha">
+									<div class="pad">
+										<?php echo $content; ?>										
+									</div>
+								</div>
+								<div class="col w-50 omega">
+									<div class="pad">
+										
+									</div>
+								</div>
+							</div>
 
 						<?php } ?>
 
@@ -119,66 +148,72 @@
 			</nav>
 		</div>
 	<?php } else { ?>
-		<div class="content__section">
-			
-				<p>Enter</p>
+		<div class="content__section form__pad">
+			<div class="grid">
+				<div class="w-50 col alpha">
+					<div class="pad">
+						<h2>Enter</h2>
 
-				<form action="http://www.3dux.co.uk/wp-login.php" method="post">
-					<div class="form-row">
-						<label for="log">Username</label>
-						<input type="text" name="log" id="log" value=""> 			
+						<form action="http://www.3dux.co.uk/wp-login.php" method="post">
+							<div class="form-row">
+								<label for="log">Username</label>
+								<input type="text" name="log" id="log" value=""> 			
+							</div>
+							<div class="form-row">
+								<label for="pwd">Password</label>
+								<input type="password" name="pwd" id="pwd"> 						
+							</div>
+							<div class="form-row">
+								<button type="submit" name="submit" class="button">Enter</button>					
+							</div>					
+							<input type="hidden" name="redirect_to" value="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>">
+						</form>						
 					</div>
-					<div class="form-row">
-						<label for="pwd">Password</label>
-						<input type="password" name="pwd" id="pwd"> 						
-					</div>
-					<div class="form-row">
-						<input type="submit" name="submit" value="Log In" class="button">						
-					</div>
-					<div class="form-row">
-						<label for="rememberme">Remember me</label>
-						<input name="rememberme" id="rememberme" type="checkbox" checked="checked" value="forever">						
-					</div>						
-					<input type="hidden" name="redirect_to" value="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>">
-				</form>
+				</div>
+				<div class="w-50 col omega">
+					<div class="pad">
+						<h2>Request Password</h2>
+						<p>
+							Hi!<br>
+							Thanks for visitng my portfolio. Due to the confidential nature of some of my work I need to hide it behind a password.
+						</p>
+						<p>
+							Please contact me on the email below or fill out the form to let me know you are so that I can provide you with a password to view my portfolio.
+						</p>
+						<p>
+							Sorry for the inconvenience!
+						</p>
+						<p>
+							<a href="mailto:emdad@3dux.co.uk" class="link-text">emdad@3dux.co.uk</a>
+						</p>
 
-				<h2>Request Password</h2>
-				<p>
-					Hi!<br>
-					Thanks for visitng my portfolio. Due to the confidential nature of some of my work I need to hide it behind a password.
-				</p>
-				<p>
-					Please contact me on the email below or fill out the form to let me know you are so that I can provide you with a password to view my portfolio.
-				</p>
-				<p>
-					Sorry for the inconvenience!
-				</p>
-				<p>
-					<a href="mailto:emdad@3dux.co.uk">emdad@3dux.co.uk</a>
-				</p>
+						<hr class="or-rule">
 
-				<hr class="or-rule">
+						<p>Fill out the form below</p>
 
-				<p>Fill out the form below</p>
-
-				<form name="contact-form" action="http://samgregorydigital.co.uk/mail/emdad/contact-request.php" method="post">
-					<div class="form-row">
-						<label for="full-name">Name</label>
-						<input type="text" id="full-name" name="full-name" required>
+						<form name="contact-form" action="http://samgregorydigital.co.uk/mail/emdad/contact-request.php" method="post">
+							<div class="form-row">
+								<label for="full-name">Name</label>
+								<input type="text" id="full-name" name="full-name" required value="">
+							</div>
+							<div class="form-row">
+								<label for="organisation">Organisation</label>
+								<input type="text" id="organisation" name="organisation" required value="">
+							</div>
+							<div class="form-row">
+								<label for="email">Email</label>
+								<div class="field">
+									<input type="email" id="email" name="email" required></input>
+									<i class="valid"></i>							
+								</div>
+							</div>
+							<div class="form-row">
+								<button type="submit">Send</button>
+							</div>
+						</form>						
 					</div>
-					<div class="form-row">
-						<label for="organisation">Organisation</label>
-						<input type="text" id="organisation" name="organisation" required>
-					</div>
-					<div class="form-row">
-						<label for="email">Email</label>
-						<input type="text" id="email" name="email" required>
-					</div>
-					<div class="form-row">
-						<button type="submit">Send</button>
-					</div>
-				</form>
-			
+				</div>
+			</div>			
 		</div>
 	<?php } ?>
 </div>

@@ -46,6 +46,18 @@ $j(function() {
 		
 	});
 
+	$j('form input').each(function() {
+		$j(this).on('focusout', function(e) {
+			var valid = false;
+			
+			if(e.currentTarget.value != '') {
+				valid = true;
+			}
+
+			$j(e.currentTarget).toggleClass('valid', valid);
+		})
+	})
+
 	// $('input[name="redirect_to"]').val($('page-id').text());
 
 	// var items = $j(subMenuHrefs).position().top;

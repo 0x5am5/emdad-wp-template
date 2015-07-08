@@ -2,9 +2,22 @@ input
 {
 	padding: 10px;
 	background: #e1e1e1;
-	border: 1px solid #000;
-	width: 250px;
+	border: 1px solid #898989;
+	width: 100%;
 	font-size: 18px;
+
+	&:focus
+	{
+		background: #fff;
+		outline: 0;
+		border-color: $blue;
+	}
+	
+	&.valid
+	{
+		border-color: #898989;
+		background: #fff;
+	}
 }
 
 button[type="submit"],
@@ -15,8 +28,7 @@ input[type="submit"]
 	font-family: $font-rg;
 	appearance: none;
 	border: 0;
-  	padding: 15px 10px;
-  	width: 250px;
+  	padding: 12px 30px;
   	font-size: 18px;
 
   	&:hover 
@@ -25,14 +37,49 @@ input[type="submit"]
   	}
 }
 
+.form__pad
+{
+	padding: 0 10%;
+}
+
+input[type="email"]
+{
+	&:valid
+	{
+		border-color: #898989;
+
+		+ .valid 
+		{
+			display: block;
+		}
+	}
+
+	+ .valid
+	{
+		display: none;
+		background: url(img/sprites/valid.png);
+		width: 30px;
+		height: 30px;
+		position: absolute;
+		right: 5px;
+		top: 7px;
+	}
+}
+
 label
 {
 	display: block;
 	margin-bottom: 15px;
+	font-size: 20px;
 }
 
 .form-row {
 	margin-bottom: 30px;
+	
+	.field
+	{		
+		position: relative;
+	}
 }
 
 @media only screen and (max-width: ($breakpointTablet - 1) ) {
@@ -45,5 +92,20 @@ label
 	input[type="submit"]
 	{
 		width: 100%;
+	}
+
+	label
+	{
+		font-size: 16px;
+	}
+
+	.valid
+	{
+		background: url(img/sprites/valid@2x.png);
+	}
+
+	.form__pad
+	{
+		padding: 0;
 	}
 }
