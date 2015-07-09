@@ -1,0 +1,42 @@
+.projects-two
+{
+	.project 
+	{
+		position: relative;
+
+		&--title
+		{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: rgba(255, 255, 255, .5);
+			color: #000;
+			z-index: 1;
+			font-size: 32px;
+		}	
+	}
+	a {
+		&:hover,
+		&:focus
+		{
+			.project--title
+			{
+				color: $blue;				
+			}
+
+			img
+			{
+				opacity: 1;
+				transition: opacity $animationTime $animationStyle;
+			}
+		}
+	}
+
+	img
+	{
+		display: block;
+		opacity: .50;
+		transition: opacity $animationTime/2 $animationStyle;
+	}
+}

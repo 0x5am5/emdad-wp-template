@@ -1,7 +1,7 @@
 body
 {
 	font-family:$font-lt;
-	font-size: 18px;
+	font-size: 16px;
 	margin: 0;
 	color: $base-font-color;
 	line-height: 1.4;
@@ -22,26 +22,27 @@ body
 	#{$h},
 	.#{$h} { 
 		margin: 0;
-		font-family: $font-bold;
+		font-family: $font-lt;
 		font-weight: 400;
 	}
 
 	p + #{$h} {
-		margin-top: 40px;
+		margin-top: 37px;
 	}
 }
 
 h1,
 .h1
 {
-	font-size: 2.667rem;
+	font-size: 64px;
+	font-family: $font-rg;
 
 	.sub-head
 	{
 		display: block;
 		font-family: $font-lt;
-		font-size: 30px;
-		color: $grey;
+		font-size: 32px;
+		color: $blue;
 	}
 }
 
@@ -49,7 +50,7 @@ h2,
 .h2
 {
 	margin-bottom: 10px;
-	font-size: 2.000rem;
+	font-size: 64px;
 	font-family: $font-lt;
 	display: block;
 
@@ -57,6 +58,11 @@ h2,
 	{
 		color: $grey;
 	}
+}
+
+h3,
+.h3 {
+	font-size: 32px;
 }
 
 a:link,

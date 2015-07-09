@@ -47,12 +47,12 @@ get_header(); ?>
 						$i++;
 					?>
 									
-					<li class="col w-25">
+					<li class="col w-33">
 						<div class="brands--img-wrap<?php if ($smallImage) { echo ' sml-img'; } ?>">
 							<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
 						</div>
 					</li>
-					<?php if ($i % 4 == 0) { ?>
+					<?php if ($i % 3 == 0) { ?>
 						</ul>
 					<ul class="brands__list-row list-inline grid">
 					<?php } ?>	
@@ -62,7 +62,80 @@ get_header(); ?>
 		</div>
 		<!-- Brands -->	
 		<?php endif; ?>
-		
+
+		<?php if( have_rows('delivering_delight') ): ?>
+		<!-- Delivering Delight -->
+		<div class="content__section delivering-delight" id="delivering">
+			<h2>Delivering Delight</h2>
+				<ul class="list-inline grid">
+					<?php while( have_rows('delivering_delight') ): the_row();
+						$title = get_sub_field('title');
+						$text = get_sub_field('text');					
+					?>								
+					<li class="col w-33">
+						<div class="delivering-delight__content">
+							<h3><?php echo $title; ?></h3>
+
+							<?php  echo $text; ?>						
+						</div>
+					</li>			
+					<?php endwhile; ?>
+				</ul>
+			</div>
+		</div>
+		<!-- Delivering Delight -->	
+		<?php endif; ?>
+
+		<?php if( have_rows('skills_2') ) : ?>
+		<!-- Skills 2 -->
+		<div class="content__section skills-two" id="skills-two">
+			<h2>Skills</h2>
+			<div class="grid">
+			<?php while( have_rows('skills_2') ): the_row(); ?>
+				<div class="col w-33">
+					<?php echo get_sub_field('intro'); ?>
+				</div>
+				<div class="col w-66">
+					<ul class="grid">
+						<?php while( have_rows('skill') ): the_row(); ?>
+							<li class="col w-50"><?php echo get_sub_field('title'); ?></li>
+						<?php endwhile; ?>
+					</ul>
+				</div>
+			<?php endwhile; ?>
+			</div>
+		</div>
+		<!-- Skills 2 -->
+		<?php endif; ?>
+
+		<?php if( have_rows('projects_2') ): ?>
+		<!-- Projects -->
+		<div class="content__section projects-two" id="projects-two">
+			<h2>Projects</h2>
+			<div class="grid">
+			<?php while( have_rows('projects_2') ): the_row(); 
+				$post_object = get_sub_field('the_pages');
+				$image = get_sub_field('image');				
+				$post = $post_object;
+				setup_postdata($post); 
+			?>
+				<div class="project col w-33">
+					<a href="<?php the_permalink(); ?>">
+						<div class="project--title">
+							<?php the_title(); ?>
+						</div>
+						<div class="project-hide">
+							<img src="<?php echo $image['url']; ?>" alt="" height="250px">
+						</div>													
+					</a>
+				</div>
+			<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+			<?php endwhile; ?>
+			</div>
+		</div>
+		<!-- Projects -->	
+		<?php endif; ?>
+
 		<div class="content__section projects" id="projects">
 			<h2>Projects</h2>
 			<?php get_template_part( 'template-parts/content', 'projects' ); ?>				

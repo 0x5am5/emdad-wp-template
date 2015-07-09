@@ -5,7 +5,23 @@
 	z-index: 5;
 	min-width: 320px;
 
+	h1
+	{
+		float: left;
 
+		.sub-head
+		{
+			margin-top: -23px;
+			margin-left: 1px;
+		}
+
+		a:hover,
+		a:focus
+		{
+			color: inherit;
+		}
+
+	}
 
 	.content--dark
 	{
@@ -16,7 +32,7 @@
 	{
 		margin-bottom: 0;
 		overflow: hidden;
-		padding-top: 10px;
+		padding-top: 4px;
 		position: relative;
 	}
 
@@ -83,24 +99,7 @@
 		border-bottom: 5px solid $blue;
 	}
 
-	h1
-	{
-		// margin: -1px;
-		float: left;
-
-		.sub-head
-		{
-			margin-top: -15px;
-			margin-left: 1px;
-		}
-
-		a:hover,
-		a:focus
-		{
-			color: inherit;
-		}
-
-	}
+	
 	a:hover,
 	a:focus
 	{
