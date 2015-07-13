@@ -83,7 +83,7 @@ get_currentuserinfo();
 					</ul>
 				</nav>	
 			</div>
-			<?php if ($blogPage) { ?>
+			<?php if ($blogPage && $current_user->caps) { ?>
 			<div class="projects projects-menu drop-menu">
 				<?php  if ($page == 'Projects') {
 					get_template_part( 'template-parts/content', 'projects' );
@@ -94,7 +94,7 @@ get_currentuserinfo();
 			<?php } ?>	
 		</div><!-- .content__section -->
 		<?php while ( have_posts() ) : the_post(); ?>
-			<?php if ($blogPage) : ?>
+			<?php if ($blogPage && $current_user->caps) : ?>
 				<?php if( have_rows('section') ): ?>
 					<?php if (count(get_field('section')) > 1) : ?>
 						<?php $i = 0; ?>					

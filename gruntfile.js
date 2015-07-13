@@ -21,6 +21,15 @@ module.exports = function(grunt) {
     sass: {
       dev: {
         options: {
+          style: 'expanded',
+          sourcemap: 'none'
+        },
+        files: {
+          'compiled/style.css': 'components/style.scss'
+        }
+      },
+      build: {
+        options: {
           style: 'compressed',
           sourcemap: 'none'
         },
@@ -57,10 +66,11 @@ module.exports = function(grunt) {
       },
       css : {
         files: ['components/**/*'],
-        tasks: ['sass', 'autoprefixer']
+        tasks: ['sass:dev', 'autoprefixer']
       }
-    }
+    },
   });
 
   grunt.registerTask('default', ['watch']);
+  grunt.registerTask('build', ['sass:build', 'autoprefixer', 'uglify' ])
 }

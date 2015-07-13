@@ -4,10 +4,6 @@
  *
  * @package emdad-portfolio
  */
-
-
-
-
 ?>
 
 <div class="content content-wrap<?php if (count(get_field('section')) > 1) { echo ' extended-header'; } ?>" id="top">
@@ -23,7 +19,7 @@
 			?>
 			<div class="content__section main-section" id="<?php echo preg_replace('/[^a-zA-Z0-9]+/', '-', strtolower($company)); ?>">
 				<div class="main-section__header">
-					<h2><?php echo $company; ?> <span class="sub-head"><?php if ($subhead) { echo $subhead; } else { echo the_title(); } ?></span></h2>
+					<h2><?php echo $company; ?> <span class="sub-head"><?php echo $subhead; ?></span></h2>
 
 					<?php echo $intro; ?>
 				</div><!-- .header -->
@@ -103,16 +99,26 @@
 		<div class="content__section">
 			<nav>
 				<div class="next-nav grid">
-					<div class="col w-25">Next project</div>
+					<div class="col w-25 next-project">Next project</div>
 					<div class="next-nav__navigation col w-50">
 						<div class="next-nav__navigation--dir col w-20">
 							<?php 
-								$next_post = get_next_post();
-								$previous_post = get_previous_post();
+								$next_post = get_next_post(TRUE);
+								$previous_post = get_previous_post(TRUE);
+								$category = get_the_category()[0]->name;
 
-								$emptyLinkNext = '<span><i class="icon icon--chevron chevron--left"></i></span>';
-							//$nextLink = previous_post_link('%link', '<i class="icon icon--chevron chevron--left"></i>', TRUE);
-								if (is_a( $next_post , 'WP_Post' ) ) {
+								$args = array(
+									'posts_per_page'   => 1,
+									'category_name'    => $category,
+									'order'            => 'ASC',
+									'post_type'        => 'post',
+									'post_status'      => 'publish',
+								);					
+								$id = get_posts($args)[0]->ID;							
+
+								$emptyLinkNext = '<a href="'.get_permalink($id).'"><i class="icon icon--chevron chevron--left"></i></a>';
+																	
+								if (is_a($next_post , 'WP_Post' ) ) {
 									next_post_link('%link', '<i class="icon icon--chevron chevron--left"></i>', TRUE);
 									$emptyLinkNext = '';
 								} 								
@@ -121,26 +127,35 @@
 						</div>
 						<div class="col w-60">
 							<?php 
-							if (is_a( $previous_post , 'WP_Post' ) ) {
-								previous_post_link('%link', '%title', TRUE);
-							} else if (is_a( $next_post , 'WP_Post' ) ) {
-								next_post_link('%link', '%title', TRUE); 
-							}
+
+								$args = array(
+										'posts_per_page'   => 1,
+										'category_name'    => $category,
+										'order'            => 'DESC',
+										'post_type'        => 'post',
+										'post_status'      => 'publish',
+									);
+
+								$id = get_posts($args)[0]->ID;
+
+								if (is_a( $previous_post , 'WP_Post' ) ) {
+									previous_post_link('%link', '%title', TRUE);
+								} else {
+									echo '<a href="'.get_permalink($id).'">'.get_the_title($id).'</a>';
+								}
 							?>
 						</div>
 						<div class="next-nav__navigation--dir col w-20">
-							<?php 						
+							<?php 														
 
-								$emptyLinkPrevious = '<span><i class="icon icon--chevron"></i></span>';
+								$emptyLinkPrevious = '<a href="'.get_permalink($id).'"><i class="icon icon--chevron"></i></a>';
 
 								if (is_a( $previous_post , 'WP_Post' ) ) {
 									previous_post_link('%link', '<i class="icon icon--chevron"></i>', TRUE); 
 									$emptyLinkPrevious = '';
-								} 
+								}																	
 								echo $emptyLinkPrevious;
-	
 							?>
-							
 						</div>
 					</div>
 					<div class="col w-25"></div>
@@ -178,7 +193,7 @@
 							Thanks for visitng my portfolio. Due to the confidential nature of some of my work I need to hide it behind a password.
 						</p>
 						<p>
-							Please contact me on the email below or fill out the form to let me know you are so that I can provide you with a password to view my portfolio.
+							Please contact me on the email below or fill out the form to let me know who you are so that I can provide you with a password to view my portfolio.
 						</p>
 						<p>
 							Sorry for the inconvenience!

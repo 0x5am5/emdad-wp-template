@@ -5,8 +5,6 @@
 	z-index: 5;
 	min-width: 320px;
 
-
-
 	.content--dark
 	{
 		background: #eee;
@@ -85,8 +83,8 @@
 
 	h1
 	{
-		// margin: -1px;
 		float: left;
+		transition: font-size $animationTime/2 $animationStyle;
 
 		.sub-head
 		{
@@ -146,6 +144,7 @@
 		h1 
 		{
 			font-size: 32px;
+			transition: font-size $animationTime/2 $animationStyle;
 
 			.sub-head 
 			{
@@ -278,7 +277,7 @@
 
 			.content__section 
 			{
-				padding-top: 10px;
+				padding-top: 0;
 			}
 
 			.sub-menu
@@ -326,6 +325,7 @@
 			float: none;
 			margin-top: 0;
 			transition: margin-top $animationTime $animationStyle;
+			margin-bottom: 0;
 		}
 
 		.content__section
@@ -345,7 +345,10 @@
 		{
 			position: relative;
 			padding-left: 0;
-			bottom: 0;
+			padding-top: 10px;
+			padding-bottom: 0;
+			//bottom: 0;
+			transition: padding-bottom $animationTime $animationStyle;
 
 			li
 			{
@@ -359,6 +362,38 @@
 				}
 			}
 		}
+
+		.drop-menu 
+		{
+			li 
+			{	
+				margin-bottom: 20px;
+				a 
+				{
+				font-size: 16px	
+				}
+			}
+		}
+
+		&.sticky-header
+		{
+			h1
+			{
+				margin-top: -80px;
+				transition: margin-top $animationTime $animationStyle;
+			}
+
+			.main-nav {
+				bottom: 5px;
+				padding-top: 25px;
+				transition: padding-top $animationTime $animationStyle;
+			}
+
+			.content__section 
+			{
+				padding-bottom: 0;
+			}
+		}
 	}
 
 	.template-two .site-header 
@@ -368,21 +403,18 @@
 			margin-bottom: 0;
 		}
 
-		.content__section
-		{
-			// padding-bottom: 10px;
-		}
-
 		li.active {
 
 			padding-right: 25px;
 			margin-right: 25px;
 
 			a {
+				position: relative;
+
 				&:after
 				{
 					margin-left: 5px;
-					top: 5px;
+					top: 0;
 				}
 			}
 		}
@@ -436,11 +468,13 @@
 				bottom: 0;
 			}
 
+			.second-nav
+			{
+				display: none;
+			}
+
 			h1
 			{
-				margin-top: -80px;
-				transition: margin-top $animationTime $animationStyle;
-
 				.sub-head
 				{
 					display: block;
