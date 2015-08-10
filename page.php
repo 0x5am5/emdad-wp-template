@@ -150,9 +150,10 @@ get_header(); ?>
 			<?php while( have_rows('skills') ): the_row(); 
 				$text = get_sub_field('text');
 				$image = get_sub_field('image');
+				$imageMob = get_sub_field('mobile_image');
 				$post = get_sub_field('page');	
 				$i++;
-
+					
 				if ($i == 7) {
 					$i = 0; // Creates new row
 				?>
@@ -161,10 +162,13 @@ get_header(); ?>
 					<div class="skills-mod__skill col w-16">
 						<a href="<?php the_permalink(); echo $pageJump; ?>" class="skills-mod--main-link">
 							<div class="skills-mod--title">
-								<?php echo $text; ?>
+								<?php the_title(); ?>
 							</div>
 							<div class="skills-mod__img-hide">
-								<img src="<?php echo $image['url']; ?>" alt="" height="300px">
+								<img src="<?php echo $image['url']; ?>" alt=""<?php if ($imageMob) { echo ' class="img-lrg"'; } ?> height="300px">
+								<?php if ($imageMob) { ?>
+									<img src="<?php echo $imageMob['url']; ?>" alt="" class="img-sml" height="300px">
+								<?php } ?>
 							</div>			
 							<span class="skills-mod--arrow">
 								<i class="arrow"></i>																	

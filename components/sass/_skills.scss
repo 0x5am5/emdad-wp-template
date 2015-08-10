@@ -3,6 +3,10 @@
 	overflow: hidden; 
 	margin-bottom: 60px;
 
+	.img-sml {
+		display: none;
+	}
+
 	&--main-link
 	{
 		padding: 10px 15px 10px 30px;
@@ -236,7 +240,14 @@
 		margin-bottom: 0;
 		
 		
-
+		.img-lrg 
+		{
+			display: none;
+		}
+		.img-sml 
+		{
+			display: block;
+		}
 		// &__skill
 		// {
 		// 	margin-bottom: 30px;
@@ -337,6 +348,11 @@
 		&__img-hide
 		{
 			height: 170px;
+
+			img 
+			{
+				opacity: 1;
+			}
 		}
 
 		&--main-link

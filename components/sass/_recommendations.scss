@@ -103,7 +103,13 @@
 			{
 				margin-bottom: 10px;
 				min-height: 0;
+
+				&:not(.recommendations__view)
+				{
+					min-height: 0;
+				}
 			}
+
 		}
 
 		h3
@@ -133,11 +139,19 @@
 			}
 		}
 
-		&__item:last-child
+		&__item
 		{
-			.recommendations--person {
+			margin-bottom: 60px;
+			
+			&:last-child
+			{
 				margin-bottom: 0;
+					
+				.recommendations--person {
+					margin-bottom: 0;
+				}
 			}
 		}
+
 	}
 }

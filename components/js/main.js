@@ -5,12 +5,8 @@ $j(function() {
 	var $_w = $j(window);
 	var tableBreakpoint = 768;
 	var templateTwo = $j('.template-two');
-	var subMenuItems = $j('.sub-menu li');
-	var subMenuHrefs = subMenuItems.find('a').attr('href');
-	var subMenuArea = $j(subMenuHrefs);
 	var header = $j('.mod-header');
 	var isMoving;
-	var padTop = $j('#top').css('padding-top');
 
 	header.on('click', 'a', function(e) {
 
@@ -37,13 +33,12 @@ $j(function() {
 		// to trigger dropdown
 		if(currentTarget.is('.dropdown')) {
 			var $target = $j('.' + $j(this).data('menu'));
-
+			e.preventDefault();	
 			$target.slideToggle(400);
 			$mod.toggleClass("open");
 
 			return;
 		}	
-		
 	});
 
 	$j('form input').each(function() {
@@ -56,15 +51,17 @@ $j(function() {
 
 			$j(e.currentTarget).toggleClass('valid', valid);
 		})
-	})
+	});
 
 	// $('input[name="redirect_to"]').val($('page-id').text());
 
-	// var items = $j(subMenuHrefs).position().top;
+	var items = $j('.sub-menu li');
+	var contentSections = $j('#top .content__section[id]');
 
 	$_w.on('scroll', function() {
 
 		var top = $j(this).scrollTop();
+		var padTop = parseInt($j('#top').css('padding-top'));
 
 		if (top >= 1) {
 			isMoving = true;
@@ -74,14 +71,14 @@ $j(function() {
 
 		header.toggleClass('sticky-header', isMoving);
 
-		// items.each(function() {
-		// 	if (top >= items[i]) {
-		// 		subMenuItems.removeClass('active');
-		// 		items[i].addClass('active');
-		// 	}
-		// })
 
-	})
+		contentSections.each(function(e, i) {
+			if (top >= ($j(i).position().top - padTop)) {
+				items.removeClass('active');
+				items.eq($j(i).index()).addClass('active');
+			}
+		})
+	});
 
 	// $_w.on('scroll', function() {
 	// 	subMenuArea.each(function() {
