@@ -221,13 +221,13 @@ p {
 
 hr {
   position: relative;
-  margin: 30px 0;
+  margin: 23px 0;
 }
 hr.or-rule:before {
   content: 'or';
   position: absolute;
   left: 50%;
-  top: -18px;
+  top: -15px;
   margin-left: -13px;
   background-color: #fff;
   padding: 5px 10px;
@@ -241,6 +241,16 @@ hr.or-rule:before {
   }
   h1 .sub-head {
     margin-top: -5px;
+  }
+
+  h2,
+  .h2 {
+    font-size: 42px;
+  }
+
+  h3,
+  .h3 {
+    font-size: 24px;
   }
 }
 .access {
@@ -258,10 +268,10 @@ hr.or-rule:before {
 }
 
 .content {
-  padding: 0 20px;
   overflow: hidden;
 }
 .content__section {
+  padding: 0 20px;
   max-width: 960px;
   margin: 0 auto;
   margin-bottom: 44px;
@@ -288,19 +298,8 @@ a.link-text:hover {
   left: 0;
 }
 
-.content-wrap {
-  padding-top: 50px;
-}
-
-.js .content-wrap {
-  padding-top: 260px;
-}
-
 .single-post .content-wrap {
-  padding-top: 160px;
-}
-.single-post .content-wrap.extended-header {
-  padding-top: 180px;
+  padding-top: 87px;
 }
 
 .button,
@@ -320,7 +319,8 @@ a.button:visited {
 }
 
 @media only screen and (max-width: 599px) {
-  .content {
+  .content__section {
+    min-height: 0;
     padding: 0 10px;
   }
 
@@ -331,10 +331,7 @@ a.button:visited {
   }
 
   .single-post .content-wrap {
-    padding-top: 180px;
-  }
-  .single-post .content-wrap.extended-header {
-    padding-top: 230px;
+    padding-top: 16px;
   }
 }
 input {
@@ -423,7 +420,7 @@ label {
   }
 
   .form__pad {
-    padding: 0;
+    padding: 0 10px;
   }
 }
 .grid {
@@ -486,6 +483,7 @@ label {
   }
   .grid img {
     width: 100%;
+    height: auto;
   }
 
   .pad {
@@ -621,14 +619,37 @@ label {
   font-size: 20px;
   margin-right: 30px;
 }
-.site-header .main-nav li:first-child a {
-  margin-left: 0;
+.site-header .main-nav li:last-child a {
+  margin-right: 0;
 }
 .site-header .content__section {
-  min-height: auto;
+  min-height: 0;
   margin-bottom: 0;
 }
 
+@media only screen and (max-width: 599px) {
+  .site-header .main-nav {
+    position: relative;
+    text-align: right;
+  }
+  .site-header .main-nav a {
+    font-size: 16px;
+    margin-right: 0;
+    margin-left: 30px;
+  }
+  .site-header .main-nav li:first-child {
+    margin-left: 0;
+  }
+  .site-header h1 {
+    margin-bottom: 16px;
+  }
+  .site-header h1 a {
+    font-size: 42px;
+  }
+  .site-header h1 .sub-head {
+    font-size: 24px;
+  }
+}
 .introduction {
   margin-bottom: 57px;
   min-width: 600px;
@@ -638,7 +659,7 @@ label {
   position: relative;
   margin-bottom: 0;
   padding-bottom: 33px;
-  min-height: auto;
+  min-height: 0;
 }
 .introduction .pic {
   position: absolute;
@@ -647,8 +668,10 @@ label {
 }
 .introduction h2 {
   margin-bottom: 5px;
-  font-size: 64px;
   line-height: 77px;
+}
+.introduction p:last-child {
+  margin-bottom: 0;
 }
 
 @media only screen and (max-width: 599px) {
@@ -656,13 +679,23 @@ label {
     background: #eee;
     min-height: 0;
     min-width: 320px;
-    padding-top: 140px;
+    padding-top: 30px;
+    margin-bottom: 47px;
   }
   .introduction p {
     padding-right: 0 !important;
   }
+  .introduction p + h2 {
+    margin-top: 30px;
+  }
   .introduction .pic {
     display: none;
+  }
+  .introduction h2 {
+    line-height: 1.4;
+  }
+  .introduction .content__section {
+    padding-bottom: 22px;
   }
 }
 .brands {
@@ -670,40 +703,25 @@ label {
 }
 .brands img {
   max-width: 100%;
-  max-height: 40px;
+  max-height: 36px;
 }
 .brands h2 {
   margin-bottom: 10px;
 }
-.brands .grid {
-  overflow: visible;
-  clear: both;
-}
 .brands__list li {
-  margin-bottom: 40px;
   text-align: center;
 }
 .brands--img-wrap {
-  padding: 30px;
-}
-.brands .sml-img {
-  margin-top: -5px;
+  padding: 50px 0 40px;
 }
 
 @media only screen and (max-width: 599px) {
-  .brands__list-row {
-    display: block;
+  .brands__list li {
+    width: 50% !important;
   }
-  .brands__list-row .w-25 {
-    width: 50%;
-    float: left;
-    text-align: center;
-  }
-  .brands__list-row .w-25 img {
-    width: auto;
-  }
-  .brands--img-wrap {
-    padding: 0 20px;
+  .brands img {
+    max-width: 120px;
+    max-height: 33px;
   }
 }
 .projects {
@@ -733,6 +751,14 @@ label {
   padding: 0 10px;
 }
 
+@media only screen and (max-width: 599px) {
+  .projects .project-hide {
+    height: 150px;
+  }
+  .projects .pad {
+    padding: 0;
+  }
+}
 .touchpoints {
   overflow: hidden;
 }
@@ -784,7 +810,7 @@ label {
 .recommendations {
   overflow: hidden;
   font-size: 16px;
-  min-height: auto;
+  min-height: 0;
 }
 .recommendations h3 {
   font-family: "2E7FC6_0_0", "Arial", sans-serif;
@@ -827,17 +853,24 @@ label {
     clear: left;
   }
   .recommendations blockquote p {
-    margin-bottom: 10px;
     min-height: 0;
   }
   .recommendations blockquote p:not(.recommendations__view) {
     min-height: 0;
   }
+  .recommendations h2 {
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+  }
   .recommendations h3 {
     margin-bottom: 5px;
   }
   .recommendations__view {
-    text-align: left;
+    text-align: right;
   }
   .recommendations__view a {
     text-decoration: underline;
@@ -853,7 +886,7 @@ label {
   }
 }
 .contact {
-  min-height: auto;
+  min-height: 0;
 }
 .contact--method {
   width: 150px;
@@ -874,24 +907,33 @@ label {
 
 @media only screen and (max-width: 599px) {
   .contact--method {
-    width: auto;
     display: block;
+    font-size: 24px;
     text-align: left;
   }
   .contact a {
     margin-left: 0;
   }
-  .contact p {
-    overflow: hidden;
+  .contact img {
+    width: 112px;
+    height: 29px;
   }
   .contact .show--sml {
     width: 100%;
   }
 }
 .skills li {
-  display: table-row;
+  padding: 0 10px;
 }
 
+@media only screen and (max-width: 599px) {
+  .skills li {
+    padding: 0;
+  }
+  .skills h3 {
+    margin-bottom: 20px;
+  }
+}
 .main-section:not(.main-section__header) {
   font-size: 22px;
   text-align: center;
@@ -1005,6 +1047,7 @@ label {
 .footer .content__section {
   padding-top: 10px;
   padding-bottom: 10px;
+  min-height: 0;
   margin-bottom: 0;
 }
 .footer a {

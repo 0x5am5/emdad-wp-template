@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="content content-wrap<?php if (count(get_field('section')) > 1) { echo ' extended-header'; } ?>" id="top">
+<div class="content content-wrap<?php // if (count(get_field('section')) > 1) { echo ' extended-header'; } ?>" id="top">
 	<?php global $current_user;
       		get_currentuserinfo();       		
     if ($current_user->caps) { ?>
@@ -167,9 +167,9 @@
 			<div class="grid">
 				<div class="w-50 col alpha">
 					<div class="pad">
-						<h2>Enter</h2>
+						<h2 class="h3">Enter</h2>
 
-						<form action="http://www.3dux.co.uk/wp-login.php" method="post">
+						<form action="http://<?php echo $_SERVER['HTTP_HOST']; ?>/Sites/emdad-portfolio/wp-login.php" method="post">
 							<div class="form-row">
 								<label for="log">Username</label>
 								<input type="text" name="log" id="log" value=""> 			
@@ -187,7 +187,7 @@
 				</div>
 				<div class="w-50 col omega">
 					<div class="pad">
-						<h2>Request Password</h2>
+						<h2 class="h3">Request Password</h2>
 						<p>
 							Hi!<br>
 							Thanks for visitng my portfolio. Due to the confidential nature of some of my work I need to hide it behind a password.

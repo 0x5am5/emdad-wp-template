@@ -1,6 +1,19 @@
 .skills
 {
 	li {
-		display: table-row;
+		padding: 0 10px;
+	}
+}
+
+@media only screen and (max-width: ($breakpointDesktop - 1) ) {
+	.skills
+	{
+		li {
+			padding: 0;			
+		}
+		h3 
+		{
+			margin-bottom: 20px;
+		}
 	}
 }

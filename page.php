@@ -74,7 +74,7 @@ get_header(); ?>
 						<div class="delivering-delight__content pad">
 							<h3><?php echo $title; ?></h3>
 
-							<?php  echo $text; ?>						
+							<p><?php  echo $text; ?></p>
 						</div>
 					</li>			
 					<?php endwhile; ?>
@@ -92,7 +92,7 @@ get_header(); ?>
 			<?php while( have_rows('skills') ): the_row(); ?>
 				<div class="col w-33">
 					<div class="pad">
-						<?php echo get_sub_field('intro'); ?>						
+						<p><?php echo get_sub_field('intro'); ?></p>
 					</div>
 				</div>
 				<div class="col w-66">
@@ -191,7 +191,7 @@ get_header(); ?>
 
 				if (!$source) {
 					$image = get_sub_field('source_image');
-					$source = '<img src="'.$image['url'].'" alt="'.$image['alt'].'">';
+					$source = '<img src="'.$image['url'].'" alt="'.$image['alt'].'" width="126" height="33">';
 				} else {
 					$source = $source.':';
 				}

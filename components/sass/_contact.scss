@@ -1,6 +1,6 @@
 .contact
 {
-	min-height: auto;
+	min-height: 0;
 
 	&--method
 	{
@@ -30,21 +30,21 @@
 	{
 		&--method
 		{
-			width: auto;
 			display: block;
-			// display: block;
+			font-size: 24px;
 			text-align: left;
 		}
 
 		a {
 			// padding-left: 80px;	
 			margin-left: 0;		
-		}
+		}	
 
-		p
+		img 
 		{
-			overflow: hidden
-		}
+			width: 112px;
+			height: 29px;
+		}	
 
 		.show--sml {
 			width: 100%;

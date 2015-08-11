@@ -10,7 +10,7 @@
 ?>
 
 	<div class="content__section">
-		<p>Designed by Emdad Rashid  <span class="footer--pipe">|</span> <br class="show--sml"> 3DUX Limited  <span class="footer--pipe">|</span> <br class="show--sml"> Registered in England and Wales No: 08949369  <span class="footer--pipe">|</span> <br class="show--sml"> VAT Reg No: GB184671577</p>
+		<p>Designed by Emdad Rashid  <span class="footer--pipe">|</span> <br class="show--sml"> 3DUX Limited  <span class="footer--pipe">|</span> <br class="show--sml"> Registered in England and Wales No: <br class="show--sml">08949369  <span class="footer--pipe">|</span> <br class="show--sml"> VAT Reg No: GB184671577</p>
 
 		<p>© Copyright 3DUX Ltd 2015  <span class="footer--pipe">|</span> <br class="show--sml"> All rights reserved</p>
 

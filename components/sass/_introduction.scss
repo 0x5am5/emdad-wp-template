@@ -9,7 +9,7 @@
 		position: relative;
 		margin-bottom: 0;
 		padding-bottom: 33px;
-		min-height: auto;
+		min-height: 0;
 	}
 
 	.pic
@@ -22,8 +22,12 @@
 	h2
 	{
 		margin-bottom: 5px;
-		font-size: 64px;
 		line-height: 77px;
+	}
+
+	p:last-child
+	{
+		margin-bottom: 0;
 	}
 }
 
@@ -44,16 +48,32 @@
 		background: #eee;
 		min-height: 0;
 		min-width: 320px;
-		padding-top: 140px;
+		padding-top: 30px;
+		margin-bottom: 47px;
 
 		p
 		{
 			padding-right: 0!important;
+
+			+ h2
+			{
+				margin-top: 30px;
+			}
 		}
 
 		.pic
 		{
 			display: none;
+		}
+
+		h2 
+		{
+			line-height: 1.4;
+		}
+
+		.content__section
+		{
+			padding-bottom: 22px;
 		}
 	}
 }

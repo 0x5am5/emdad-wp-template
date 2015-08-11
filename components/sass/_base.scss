@@ -51,11 +51,8 @@ h2,
 .h2
 {
 	margin-bottom: 44px;
-	font-size: 64px;
-	// font-size: 32px;
+	font-size: 64px;	
 	font-family: $font-lt;
-	// display: block;
-	// line-height: 44px;
 
 	.sub-head
 	{
@@ -90,7 +87,7 @@ p {
 hr
 {
 	position: relative;
-	margin: 30px 0;
+	margin: 23px 0;
 
 	&.or-rule
 	{
@@ -99,7 +96,7 @@ hr
 			content: 'or';
 			position: absolute;
 			left: 50%;
-			top: -18px;	
+			top: -15px;	
 			margin-left: -13px;	
 			background-color: #fff;
 			padding: 5px 10px;
@@ -119,5 +116,17 @@ hr
 		{
 			margin-top: -5px;		
 		}
+	}
+
+	h2,
+	.h2
+	{
+		font-size: 42px;
+	}
+
+	h3,
+	.h3
+	{
+		font-size: 24px;
 	}
 }

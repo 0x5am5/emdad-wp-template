@@ -5,7 +5,7 @@
 	img
 	{
 		max-width: 100%;
-		max-height: 40px;
+		max-height: 36px;
 	}
 
 	h2
@@ -13,57 +13,34 @@
 		margin-bottom: 10px;
 	}
 
-	.grid
-	{
-		overflow: visible;
-		clear: both;
-	}
-
 	&__list
 	{		
 		li {
-			margin-bottom: 40px;
 			text-align: center;
 		}
 	}
 
 	&--img-wrap
 	{
-		padding: 30px;
-	}
-
-	.sml-img
-	{
-		margin-top: -5px;
+		padding: 50px 0 40px;
 	}
 }
 
-@media only screen and (max-width: ($breakpointDesktop - 1) ) {
+@media only screen and (max-width: $breakpointDesktop - 1 ) {
 	.brands
 	{
 		&__list
 		{
-			// overflow: hidden;
-		}
-		&__list-row
-		{
-			display: block;
-
-			.w-25 {
-				width: 50%;
-				float: left;
-				text-align: center;
-
-				img
-				{
-					width: auto;
-				}
+			li 
+			{
+				width: 50%!important;
 			}
 		}
 
-		&--img-wrap
+		img
 		{
-			padding: 0 20px;
+			max-width: 120px;
+			max-height: 33px;
 		}
 	}
 }

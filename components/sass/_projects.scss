@@ -55,3 +55,18 @@
 		padding: 0 10px;
 	}
 }
+
+@media only screen and (max-width: ($breakpointDesktop - 1) ) {
+	.projects
+	{
+		.project-hide
+		{
+			height: 150px;
+		}
+
+		.pad
+		{
+			padding: 0;
+		}
+	}
+}

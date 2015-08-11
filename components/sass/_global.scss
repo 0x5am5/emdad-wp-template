@@ -17,11 +17,11 @@
 
 .content
 {
-	padding:0 20px;
 	overflow: hidden;
 
 	&__section
 	{
+		padding:0 20px;
 		max-width: 960px;
 		margin: 0 auto;
 		margin-bottom: 44px;
@@ -56,26 +56,34 @@ a.link-text
 	}
 }
 
-.content-wrap 
+.single-post 
 {
-	padding-top: 50px;
-}
-.js {
 	.content-wrap
 	{
-		padding-top: 260px;
+		padding-top: 87px;
 	}
 }
 
-.single-post .content-wrap
-{
-	padding-top: 160px;
+// .content-wrap 
+// {
+// 	padding-top: 50px;
+// }
+// .js {
+// 	.content-wrap
+// 	{
+// 		padding-top: 260px;
+// 	}
+// }
 
-	&.extended-header
-	{
-		padding-top: 180px;	
-	}
-}
+// .single-post .content-wrap
+// {
+// 	padding-top: 160px;
+
+// 	&.extended-header
+// 	{
+// 		padding-top: 180px;	
+// 	}
+// }
 
 .button,
 a.button {		
@@ -97,9 +105,12 @@ a.button {
 
 @media only screen and (max-width: ($breakpointDesktop - 1) ) {
 	.content
-	{
-
-		padding: 0 10px;
+	{		
+		&__section
+		{
+			min-height: 0;	
+			padding: 0 10px;
+		}
 	}
 
 	.button
@@ -111,11 +122,6 @@ a.button {
 
 	.single-post .content-wrap
 	{
-		padding-top: 180px;
-
-		&.extended-header
-		{
-			padding-top: 230px;
-		}
+		padding-top: 16px;
 	}
 }
