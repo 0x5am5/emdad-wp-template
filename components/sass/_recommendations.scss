@@ -1,24 +1,21 @@
 .recommendations
 {
 	overflow: hidden;
-		
-	font-size: 20px;
+	font-size: 16px;		
+	min-height: auto;
 
 	h3
 	{
 		font-family: $font-lt;	
-		font-size: 20px;
+		font-size: 16px;		
+		margin-bottom: 0;
 	}
-
-		// text-decoration: none;
+		
 	a:hover,
 	a:focus
 	{		
 		font-family: $font-lt;
-
-		.recommendations__view span {
-			text-decoration: underline;
-		}
+		text-decoration: underline;
 	}
 	
 	blockquote
@@ -34,17 +31,6 @@
 		}				
 	}
 
-	&__item
-	{
-		// margin-bottom: 10px;
-	}
-
-	&--profile-pic
-	{
-		margin-bottom: 20px; 
-	}
-
-
 	&__view
 	{
 		text-align: right;
@@ -55,7 +41,7 @@
 		{
 			vertical-align: middle;	
 			margin-bottom: 4px;
-			margin-left: 10px;
+			margin-left: 5px;
 		}
 	}
 
@@ -65,29 +51,7 @@
 	}
 }
 
-@media only screen and (max-width: $breakpointDesktop) {
-	.recommendations
-	{
-		font-size: 16px;		
-
-		h3
-		{
-			font-size: 16px;		
-		}
-
-		&--profile-pic
-		{
-			margin-bottom: 10px; 
-		}
-
-		blockquote
-		{
-			padding-top: 10px;
-		}
-	}
-}
-
-@media only screen and (max-width: ($breakpointTablet - 1) ) {
+@media only screen and (max-width: ($breakpointDesktop - 1) ) {
 	.recommendations
 	{
 
@@ -117,19 +81,6 @@
 			margin-bottom: 5px;
 		}
 
-		&--profile-pic
-		{
-			overflow: hidden;
-			margin-bottom: 0;
-			img
-			{
-				max-width: 100px;
-				float: left;
-				margin-right: 15px;
-				margin-bottom: 15px;
-			}
-		}
-
 		&__view
 		{
 			text-align: left;
@@ -152,6 +103,5 @@
 				}
 			}
 		}
-
 	}
 }

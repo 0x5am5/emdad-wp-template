@@ -4,7 +4,7 @@ body
 	font-size: 16px;
 	margin: 0;
 	color: $base-font-color;
-	line-height: 1.4;
+	line-height: 22px;
 	min-width: 320px;
 }
 
@@ -24,6 +24,7 @@ body
 		margin: 0;
 		font-family: $font-lt;
 		font-weight: 400;
+		line-height: 1;
 	}
 
 	p + #{$h} {
@@ -34,8 +35,8 @@ body
 h1,
 .h1
 {
-	font-size: 64px;
 	font-family: $font-rg;
+	// line-height: 77px;
 
 	.sub-head
 	{
@@ -49,10 +50,12 @@ h1,
 h2,
 .h2
 {
-	margin-bottom: 10px;
+	margin-bottom: 44px;
 	font-size: 64px;
+	// font-size: 32px;
 	font-family: $font-lt;
-	display: block;
+	// display: block;
+	// line-height: 44px;
 
 	.sub-head
 	{
@@ -63,6 +66,7 @@ h2,
 h3,
 .h3 {
 	font-size: 32px;
+	margin-bottom: 30px;
 }
 
 a:link,
@@ -75,7 +79,7 @@ a:hover,
 a:focus
 {
 	color: $blue;
-	text-decoration: underline;
+	text-decoration: none;
 	outline: 0;
 }
 
@@ -104,39 +108,7 @@ hr
 	}
 }
 
-
-
-@media only screen and (max-width: $breakpointDesktop) {
-	body 
-	{
-		font-size: 16px;
-
-		&.single-post
-		{
-			font-size: 18px;
-		}
-	}
-	
-	h1,
-	.h1
-	{
-		font-size: 36px;
-
-		.sub-head
-		{
-			font-size: 22px;
-		}
-	}
-
-	h2,
-	.h2
-	{
-		font-size: 27px;
-		margin-bottom: 10px;	
-	}
-}
-
-@media only screen and (max-width: ($breakpointTablet - 1) ) {
+@media only screen and (max-width: ($breakpointDesktop - 1) ) {
 	
 	h1 {
 

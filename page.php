@@ -21,8 +21,12 @@ get_header(); ?>
 
 	<div class="content content--dark introduction" id="top">
 		<div class="content__section">
-			<?php the_content(); ?>
-			<img src="<?php echo bloginfo('template_directory'); ?>/img/portrait.png" alt="" class="pic">
+			<div class="grid">
+				<div class="col w-50">
+					<?php the_content(); ?>				
+				</div>							
+			</div>
+			<img src="<?php echo bloginfo('template_directory'); ?>/img/portrait.png" alt="" class="pic">						
 		</div>
 	</div>
 
@@ -30,10 +34,8 @@ get_header(); ?>
 		<?php if( have_rows('brands') ): ?>
 		<!-- Brands -->
 		<?php $i = 0; ?>
-		<div class="content__section brands" id="brands">
-			<span class="h2">
-				<h2 class="inline">Brands</h2> worked with
-			</span>
+		<div class="content__section brands" id="brands">			
+			<h2>With big brands</h2>				
 			<div class="brands__list">
 				<ul class="brands__list-row list-inline grid">
 					<?php while( have_rows('brands') ): the_row();
@@ -52,10 +54,6 @@ get_header(); ?>
 							<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
 						</div>
 					</li>
-					<?php if ($i % 3 == 0) { ?>
-						</ul>
-					<ul class="brands__list-row list-inline grid">
-					<?php } ?>	
 					<?php endwhile; ?>
 				</ul>
 			</div>
@@ -73,7 +71,7 @@ get_header(); ?>
 						$text = get_sub_field('text');					
 					?>								
 					<li class="col w-33">
-						<div class="delivering-delight__content">
+						<div class="delivering-delight__content pad">
 							<h3><?php echo $title; ?></h3>
 
 							<?php  echo $text; ?>						
@@ -86,125 +84,66 @@ get_header(); ?>
 		<!-- Delivering Delight -->	
 		<?php endif; ?>
 
-		<?php if( have_rows('skills_2') ) : ?>
-		<!-- Skills 2 -->
-		<div class="content__section skills-two" id="skills-two">
+		<?php if( have_rows('skills') ) : ?>
+		<!-- Skills -->
+		<div class="content__section skills" id="skills">
 			<h2>Skills</h2>
 			<div class="grid">
-			<?php while( have_rows('skills_2') ): the_row(); ?>
+			<?php while( have_rows('skills') ): the_row(); ?>
 				<div class="col w-33">
-					<?php echo get_sub_field('intro'); ?>
+					<div class="pad">
+						<?php echo get_sub_field('intro'); ?>						
+					</div>
 				</div>
 				<div class="col w-66">
 					<ul class="grid">
-						<?php while( have_rows('skill') ): the_row(); ?>
-							<li class="col w-50"><?php echo get_sub_field('title'); ?></li>
+						<?php $i = 1; ?>
+						<?php while( have_rows('titles') ): the_row(); ?>
+							<li class="col w-50"><h3><?php echo get_sub_field('text'); ?></h3></li>
+						<?php if ($i % 2 == 0) : ?>
+							</ul>
+							<ul class="grid">
+						<?php endif; ?>
+							<?php $i++; ?>
 						<?php endwhile; ?>
 					</ul>
 				</div>
 			<?php endwhile; ?>
 			</div>
 		</div>
-		<!-- Skills 2 -->
+		<!-- Skills -->
 		<?php endif; ?>
 
-		<?php if( have_rows('projects_2') ): ?>
+		<?php if( have_rows('projects') ): ?>
 		<!-- Projects -->
-		<div class="content__section projects-two" id="projects-two">
+		<div class="content__section projects" id="projects">
 			<h2>Projects</h2>
 			<div class="grid">
-			<?php while( have_rows('projects_2') ): the_row(); 
+			<?php $i = 1; ?>
+			<?php while( have_rows('projects') ): the_row(); 
 				$post_object = get_sub_field('the_pages');
 				$image = get_sub_field('image');				
 				$post = $post_object;
 				setup_postdata($post); 
 			?>
-				<div class="project col w-33">
-					<a href="<?php the_permalink(); ?>">
-						<div class="project--title">
-							<?php the_title(); ?>
-						</div>
-						<div class="project-hide">
-							<img src="<?php echo $image['url']; ?>" alt="" height="250px">
-						</div>													
-					</a>
+				<div class="project col w-33<?php if ($i % 3 == 1) { echo ' alpha'; } else if ($i % 3 == 0) { echo ' omega'; } ?>">
+					<div class="pad">
+						<a href="<?php the_permalink(); ?>">
+							<h3>
+								<?php the_title(); ?>
+							</h3>
+							<div class="project-hide">
+								<img src="<?php echo $image['url']; ?>" alt="" height="150px">
+							</div>													
+						</a>						
+					</div>
 				</div>
+			<?php $i++; ?>
 			<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 			<?php endwhile; ?>
 			</div>
 		</div>
 		<!-- Projects -->	
-		<?php endif; ?>
-
-		<div class="content__section projects" id="projects">
-			<h2>Projects</h2>
-			<?php get_template_part( 'template-parts/content', 'projects' ); ?>				
-		</div>
-
-		<?php if( have_rows('skills') ): ?>
-		<!-- Skills -->
-		<?php $i = 0; ?>
-		<div class="content__section" id="skills">
-			<h2>Skills</h2>
-			<div class="skills-mod grid">
-			<?php while( have_rows('skills') ): the_row(); 
-				$text = get_sub_field('text');
-				$image = get_sub_field('image');
-				$imageMob = get_sub_field('mobile_image');
-				$post = get_sub_field('page');	
-				$i++;
-					
-				if ($i == 7) {
-					$i = 0; // Creates new row
-				?>
-				<div class="skills-mod grid">
-				<?php } ?>
-					<div class="skills-mod__skill col w-16">
-						<a href="<?php the_permalink(); echo $pageJump; ?>" class="skills-mod--main-link">
-							<div class="skills-mod--title">
-								<?php the_title(); ?>
-							</div>
-							<div class="skills-mod__img-hide">
-								<img src="<?php echo $image['url']; ?>" alt=""<?php if ($imageMob) { echo ' class="img-lrg"'; } ?> height="300px">
-								<?php if ($imageMob) { ?>
-									<img src="<?php echo $imageMob['url']; ?>" alt="" class="img-sml" height="300px">
-								<?php } ?>
-							</div>			
-							<span class="skills-mod--arrow">
-								<i class="arrow"></i>																	
-							</span>					
-							<span class="skills-mod--view-all">View all</span>
-						</a>
-					</div>
-					<?php if ($i == 6) : ?>
-				</div>
-					<?php endif; ?>
-					<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
-				<?php endwhile; ?>
-			</div>
-		</div>
-		<!-- Skills -->	
-		<?php endif; ?>
-
-		<?php if( have_rows('touchpoints') ): ?>
-		<!-- Touchpoints -->
-		<div class="content__section touchpoints" id="touchpoints">		
-			<h2>Touchpoints</h2>
-			<ul class="list-inline grid">
-				<?php while( have_rows('touchpoints') ): the_row(); 
-					$text = get_sub_field('text');
-					$image = get_sub_field('image');
-					?>
-					<li class="col w-25">							
-						<div class="touchpoints__img-wrap">							
-							<?php echo $text; ?>
-							<img src="<?php echo $image['url'] ?>" alt="">
-						</div>							
-					</li>
-				<?php endwhile; ?>
-			</ul>
-		</div>
-		<!-- Touchpoints -->	
 		<?php endif; ?>
 
 		<?php if( have_rows('recommendations') ): ?>
@@ -216,14 +155,10 @@ get_header(); ?>
 				$name = get_sub_field('name');
 				$job = get_sub_field('job');
 				$text = get_sub_field('text');
-				$image = get_sub_field('image');
 				$quote = get_sub_field('quote');
 				?>
 				<div class="recommendations__item w-33 col alpha">
 					<div class="pad">
-						<div class="recommendations--profile-pic">
-							<img src="<?php echo $image['url']; ?>" alt="">								
-						</div>
 						<h3><?php echo $name; ?></h3>
 						<?php echo $job; ?>								
 						<blockquote cite="https://uk.linkedin.com/pub/emdad-rashid/b/98/100<?php echo $linkedinId; ?>">
@@ -280,5 +215,3 @@ get_header(); ?>
 	</div>
 
 <?php endwhile; // End of the loop. ?>
-
-

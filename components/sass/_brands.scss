@@ -10,7 +10,7 @@
 
 	h2
 	{
-		display: inline;
+		margin-bottom: 10px;
 	}
 
 	.grid
@@ -20,9 +20,7 @@
 	}
 
 	&__list
-	{
-		margin-top: 1em; 
-
+	{		
 		li {
 			margin-bottom: 40px;
 			text-align: center;
@@ -40,20 +38,7 @@
 	}
 }
 
-@media only screen and (max-width: $breakpointDesktop) {
-	.brands
-	{
-		&__list-row
-		{
-			li
-			{
-				margin-bottom: 20px;
-			}
-		}
-	}
-}
-
-@media only screen and (max-width: ($breakpointTablet - 1) ) {
+@media only screen and (max-width: ($breakpointDesktop - 1) ) {
 	.brands
 	{
 		&__list

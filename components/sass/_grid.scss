@@ -5,6 +5,21 @@
   .col
   {
     float: left;
+
+    &:first-child
+    {
+      > .pad {
+        padding-left: 0;
+      }
+    }
+
+    &:last-child
+    {
+      > .pad 
+      {
+        padding-right: 0;
+      }
+    }
   }
   .w-66
   {
@@ -44,18 +59,18 @@
 {
   .pad
   {
-    padding-left: 0;
+    padding-left: 0!important;
   }
 }
 .omega
 {
   .pad
   {
-    padding-right: 0;    
+    padding-right: 0!important;    
   }
 }
 
-@media only screen and (max-width: ($breakpointTablet - 1) ) {
+@media only screen and (max-width: ($breakpointDesktop - 1) ) {
   .grid
   {
     .col

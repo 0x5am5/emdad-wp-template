@@ -1,44 +1,32 @@
 .introduction
 {
-	padding-bottom: 5px;
-	margin-bottom: 42px;
+	margin-bottom: 57px;
 	min-width: $breakpointDesktop;
-	padding-top: 144px;
+	padding-top: 42px;
 
 	.content__section
 	{
-		margin-bottom: 0;
 		position: relative;
+		margin-bottom: 0;
+		padding-bottom: 33px;
+		min-height: auto;
 	}
 
 	.pic
 	{
 		position: absolute;
 		bottom: -25px;
-		right: -150px;
+		right: -150px;	
 	}
 
 	h2
 	{
-		margin-bottom: 0;
+		margin-bottom: 5px;
+		font-size: 64px;
+		line-height: 77px;
 	}
 }
 
-@media only screen and (max-width: $breakpointDesktop) {
-	.introduction
-	{
-		.pic
-		{
-			right: -150px;
-  			width: 550px;	
-		}
-
-		.content__section
-		{
-			margin: 0;
-		}
-	}
-}
 @media only screen and (-webkit-min-device-pixel-ratio: 2), 
 		only screen and (min-device-pixel-ratio: 2) {
 	.introduction .pic
@@ -50,7 +38,7 @@
 	
 }
 
-@media only screen and (max-width: ($breakpointTablet - 1) ) {
+@media only screen and (max-width: ($breakpointDesktop - 1) ) {
 	.introduction
 	{
 		background: #eee;

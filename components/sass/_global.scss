@@ -25,6 +25,7 @@
 		max-width: 960px;
 		margin: 0 auto;
 		margin-bottom: 44px;
+		min-height: 715px;
 	}
 
 	&--dark
@@ -94,15 +95,7 @@ a.button {
 	}
 }
 
-@media only screen and (max-width: $breakpointDesktop) {
-	.single-post .content-wrap
-	{
-		padding-top: 130px;
-	}
-
-}
-
-@media only screen and (max-width: ($breakpointTablet - 1) ) {
+@media only screen and (max-width: ($breakpointDesktop - 1) ) {
 	.content
 	{
 

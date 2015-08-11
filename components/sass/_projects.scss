@@ -11,44 +11,47 @@
 	{
 		font-family: $font-rg;
 		position: relative;
+		display: block;
+		overflow: hidden;
+		margin-bottom: 20px;
 
-		&:after
-		{
-			content: '';
-			background: url(img/sprites/chevron.png) no-repeat;
-			display: inline-block;
-			width: 11px;
-			height: 20px;
-			position: absolute;
-			top:-2px;
-			right: -20px;
-		}
+		// &:after
+		// {
+		// 	// content: '';
+		// 	// background: url(img/sprites/chevron.png) no-repeat;
+		// 	// display: inline-block;
+		// 	// width: 11px;
+		// 	// height: 20px;
+		// 	// position: absolute;
+		// 	// top:-2px;
+		// 	// right: -20px;
+		// }
 
-		&:hover,
-		&:focus
-		{
-			text-decoration: underline;
+		// &:hover,
+		// &:focus
+		// {
+		// 	text-decoration: underline;
 
-			&:after
-			{
-				background: url(img/sprites/chevron-hvr.png);
-			}
-		}
+		// 	&:after
+		// 	{
+		// 		background: url(img/sprites/chevron-hvr.png);
+		// 	}
+		// }
 	}
-}
-@media only screen and (max-width: $breakpointDesktop) {
-	.projects
-	{
-		a{
-			font-family: $font-lt;
-		}
+
+	h3 {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 10;
+		background: rgba(#fff, .9);
+		margin-bottom: 0;
+		padding-top: 5px;
 	}
-}
 
-
-@media only screen and (max-width: ($breakpointTablet - 1) ) {
-	.projects
+	.pad
 	{
-
+		padding: 0 10px;
 	}
 }
