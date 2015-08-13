@@ -28,6 +28,48 @@
 		min-height: 715px;
 	}
 
+	&__section-header
+	{
+		p
+		{
+			column-count: 2;
+			column-gap: 20px;
+			column-fill: auto;
+			height: 132px;			
+		}
+	}
+
+	&__section-item
+	{
+		text-align: center;
+		margin-bottom: 60px;
+
+		img + p 
+		{
+			margin-top: 5px;
+		}
+
+		p 
+		{
+			width: 780px;
+			margin: 0 auto;
+			text-align: left;
+		}
+
+		.large-text
+		{
+			font-size: 32px;
+		}
+	}
+
+	&__section-body--two-col
+	{
+		.grid
+		{
+			margin-bottom: 30px;
+		}
+	}
+
 	&--dark
 	{
 		background: #eee;

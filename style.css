@@ -90,7 +90,7 @@ body {
   font-size: 16px;
   margin: 0;
   color: #000;
-  line-height: 22px;
+  line-height: 1.4;
   min-width: 320px;
 }
 
@@ -193,7 +193,7 @@ h2,
 }
 h2 .sub-head,
 .h2 .sub-head {
-  color: #636363;
+  color: #0b5fc8;
 }
 
 h3,
@@ -276,6 +276,36 @@ hr.or-rule:before {
   margin: 0 auto;
   margin-bottom: 44px;
   min-height: 715px;
+}
+.content__section-header p {
+  -webkit-column-count: 2;
+     -moz-column-count: 2;
+          column-count: 2;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
+  -webkit-column-fill: auto;
+     -moz-column-fill: auto;
+          column-fill: auto;
+  height: 132px;
+}
+.content__section-item {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.content__section-item img + p {
+  margin-top: 5px;
+}
+.content__section-item p {
+  width: 780px;
+  margin: 0 auto;
+  text-align: left;
+}
+.content__section-item .large-text {
+  font-size: 32px;
+}
+.content__section-body--two-col .grid {
+  margin-bottom: 30px;
 }
 .content--dark {
   background: #eee;
@@ -982,41 +1012,46 @@ label {
     margin-bottom: 20px;
   }
 }
-.next-nav {
-  overflow: hidden;
+.page-nav {
+  min-height: 0;
+  margin-top: 115px;
+  margin-bottom: 120px;
 }
-.next-nav > div {
+.page-nav .next-nav > div {
   width: 25%;
   float: left;
   text-align: center;
   font-size: 36px;
 }
-.next-nav > div.next-nav__navigation {
+.page-nav .next-nav > div.next-nav__navigation {
   width: 50%;
   font-family: "2E7FC6_0_0", "Arial", sans-serif;
 }
-.next-nav__navigation {
+.page-nav .next-nav__navigation {
   overflow: hidden;
   vertical-align: middle;
 }
-.next-nav__navigation > div {
+.page-nav .next-nav__navigation > div {
   width: 60%;
   float: left;
 }
-.next-nav__navigation > div a {
+.page-nav .next-nav__navigation > div a {
   color: #636363;
 }
-.next-nav__navigation > div.next-nav__navigation--dir {
+.page-nav .next-nav__navigation > div.next-nav__navigation--dir {
   width: 20%;
   color: #000;
 }
-.next-nav__navigation > div.next-nav__navigation--dir a,
-.next-nav__navigation > div.next-nav__navigation--dir span {
+.page-nav .next-nav__navigation > div.next-nav__navigation--dir a,
+.page-nav .next-nav__navigation > div.next-nav__navigation--dir span {
   width: 50px;
   height: 50px;
   background-color: #ccc;
   display: inline-block;
   text-align: center;
+}
+.page-nav .next-project {
+  margin-left: -17px;
 }
 
 @media only screen and (max-width: 599px) {

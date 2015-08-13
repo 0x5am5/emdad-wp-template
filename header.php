@@ -85,8 +85,6 @@ get_currentuserinfo();
 			<div class="projects projects-menu drop-menu">
 				<?php  if ($page == 'Projects') {
 					get_template_part( 'template-parts/content', 'projects' );
-				} else if ($page == 'Skills') {
-					get_template_part( 'template-parts/content', 'skills' );
 				} ?>
 			</div>				
 			<?php } ?>	
