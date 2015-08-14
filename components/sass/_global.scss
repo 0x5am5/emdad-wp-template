@@ -51,7 +51,7 @@
 
 		p 
 		{
-			width: 780px;
+			max-width: 780px;
 			margin: 0 auto;
 			text-align: left;
 		}
@@ -102,7 +102,7 @@ a.link-text
 {
 	.content-wrap
 	{
-		padding-top: 87px;
+		padding-top: 54px;
 	}
 }
 
@@ -151,7 +151,37 @@ a.button {
 		&__section
 		{
 			min-height: 0;	
-			padding: 0 10px;
+			padding: 0 15px;
+		}
+
+		&__section-header
+		{
+			p
+			{
+				column-count: 1;
+				height: auto;			
+			}
+		}
+
+		&__section-item
+		{
+			.large-text
+			{
+				font-size: 24px;				
+			}
+		}
+
+		&__section-body--two-col
+		{
+			.grid .w-50
+			{
+				width: 50%;
+			}
+
+			.pad
+			{
+				padding: 0 10px;
+			}
 		}
 	}
 
@@ -164,6 +194,6 @@ a.button {
 
 	.single-post .content-wrap
 	{
-		padding-top: 16px;
+		padding-top: 50px;
 	}
 }

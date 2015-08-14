@@ -234,10 +234,15 @@ hr.or-rule:before {
   color: #636363;
 }
 
+img {
+  max-width: 100%;
+}
+
 @media only screen and (max-width: 599px) {
   h1 {
     margin-bottom: 20px;
     display: block;
+    font-size: 42px;
   }
   h1 .sub-head {
     margin-top: -5px;
@@ -246,6 +251,12 @@ hr.or-rule:before {
   h2,
   .h2 {
     font-size: 42px;
+    margin-bottom: 15px;
+  }
+  h2 .sub-head,
+  .h2 .sub-head {
+    display: block;
+    margin-top: 10px;
   }
 
   h3,
@@ -291,7 +302,7 @@ hr.or-rule:before {
   margin-top: 5px;
 }
 .content__section-item p {
-  width: 780px;
+  max-width: 780px;
   margin: 0 auto;
   text-align: left;
 }
@@ -323,7 +334,7 @@ a.link-text:hover {
 }
 
 .single-post .content-wrap {
-  padding-top: 87px;
+  padding-top: 54px;
 }
 
 .button,
@@ -345,6 +356,19 @@ a.button:visited {
 @media only screen and (max-width: 599px) {
   .content__section {
     min-height: 0;
+    padding: 0 15px;
+  }
+  .content__section-header p {
+    column-count: 1;
+    height: auto;
+  }
+  .content__section-item .large-text {
+    font-size: 24px;
+  }
+  .content__section-body--two-col .grid .w-50 {
+    width: 50%;
+  }
+  .content__section-body--two-col .pad {
     padding: 0 10px;
   }
 
@@ -355,7 +379,7 @@ a.button:visited {
   }
 
   .single-post .content-wrap {
-    padding-top: 16px;
+    padding-top: 50px;
   }
 }
 input {
@@ -616,8 +640,12 @@ label {
     padding: 0 10px;
   }
 }
+.site-header {
+  background-color: #eee;
+}
 .site-header .header__main-content {
   padding-top: 8px;
+  padding-bottom: 8px;
   position: relative;
 }
 .site-header h1 {
@@ -633,7 +661,7 @@ label {
 .site-header .main-nav {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 8px;
 }
 .site-header .main-nav a {
   font-size: 20px;
@@ -651,6 +679,7 @@ label {
   .site-header .main-nav {
     position: relative;
     text-align: right;
+    bottom: 0;
   }
   .site-header .main-nav a {
     font-size: 16px;
@@ -662,12 +691,11 @@ label {
   }
   .site-header h1 {
     margin-bottom: 16px;
-  }
-  .site-header h1 a {
-    font-size: 42px;
+    font-size: 41px;
   }
   .site-header h1 .sub-head {
     font-size: 24px;
+    margin-top: 0;
   }
 }
 .introduction {
@@ -1003,62 +1031,52 @@ label {
   min-height: 0;
   margin-top: 115px;
   margin-bottom: 120px;
-}
-.page-nav .next-nav > div {
-  width: 25%;
-  float: left;
-  text-align: center;
   font-size: 36px;
 }
-.page-nav .next-nav > div.next-nav__navigation {
-  width: 50%;
-  font-family: "2E7FC6_0_0", "Arial", sans-serif;
-}
 .page-nav .next-nav__navigation {
-  overflow: hidden;
-  vertical-align: middle;
+  text-align: center;
 }
-.page-nav .next-nav__navigation > div {
-  width: 60%;
-  float: left;
-}
-.page-nav .next-nav__navigation > div a {
-  color: #636363;
-}
-.page-nav .next-nav__navigation > div.next-nav__navigation--dir {
-  width: 20%;
-  color: #000;
-}
-.page-nav .next-nav__navigation > div.next-nav__navigation--dir a,
-.page-nav .next-nav__navigation > div.next-nav__navigation--dir span {
+.page-nav .next-nav__navigation--dir a,
+.page-nav .next-nav__navigation--dir span {
   width: 50px;
   height: 50px;
   background-color: #ccc;
   display: inline-block;
   text-align: center;
 }
-.page-nav .next-project {
-  margin-left: -17px;
+.page-nav .next-nav .w-60 a {
+  color: #636363;
 }
 
 @media only screen and (max-width: 599px) {
-  .next-nav .w-20 {
+  .page-nav {
+    font-size: 24px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .page-nav .next-project {
+    margin-bottom: 20px;
+  }
+  .page-nav .next-nav .w-20 {
     width: 20%;
   }
-  .next-nav .w-60 {
+  .page-nav .next-nav .w-60 {
     width: 60%;
   }
-  .next-nav > div {
-    font-size: 22px;
+  .page-nav .next-nav__navigation > div:first-child {
+    text-align: left;
   }
-  .next-nav > div.next-nav__navigation {
+  .page-nav .next-nav__navigation > div:last-child {
+    text-align: right;
+  }
+  .page-nav .next-nav__navigation a,
+  .page-nav .next-nav__navigation span {
+    padding: 10px;
+    display: inline-block;
+  }
+  .page-nav .next-nav .next-nav .next-project {
     width: 100%;
-  }
-  .next-nav div:first-child {
-    padding: 0;
-  }
-  .next-nav__navigation--dir {
-    font-size: 36px;
+    text-align: left;
   }
 }
 .footer {

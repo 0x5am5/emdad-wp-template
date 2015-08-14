@@ -105,12 +105,18 @@ hr
 	}
 }
 
+img
+{
+	max-width: 100%;
+}
+
 @media only screen and (max-width: ($breakpointDesktop - 1) ) {
 	
 	h1 {
 
 		margin-bottom: 20px;
 		display: block;
+		font-size: 42px;
 
 		.sub-head
 		{
@@ -122,11 +128,20 @@ hr
 	.h2
 	{
 		font-size: 42px;
+		margin-bottom: 15px;
+
+		.sub-head
+		{
+			display: block;
+			margin-top: 10px;
+		}
 	}
 
 	h3,
 	.h3
 	{
 		font-size: 24px;
+		
+
 	}
 }

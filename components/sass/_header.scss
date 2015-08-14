@@ -1,8 +1,11 @@
 .site-header
 {
+	background-color: #eee;
+
 	.header__main-content
 	{
 		padding-top: 8px;
+		padding-bottom: 8px;
 		position: relative;
 	}
 
@@ -30,7 +33,7 @@
 	{
 		position: absolute;
 		right: 0;	
-		bottom: 0;
+		bottom: 8px;
 
 		a
 		{
@@ -62,6 +65,7 @@
 		{
 			position: relative;
 			text-align: right;
+			bottom: 0;
 
 			a
 			{
@@ -78,15 +82,12 @@
 		h1
 		{
 			margin-bottom: 16px;
-
-			a
-			{
-				font-size: 42px;
-			}
+			font-size: 41px;
 
 			.sub-head
 			{
 				font-size: 24px;
+				margin-top: 0;
 			}
 		}
 	}
