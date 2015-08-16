@@ -682,9 +682,47 @@ label {
 .site-header .main-nav li:last-child a {
   margin-right: 0;
 }
+.site-header .main-nav .active a {
+  color: #0b5fc8;
+}
 .site-header .content__section {
   min-height: 0;
   margin-bottom: 0;
+}
+.site-header .sub-menu {
+  margin-bottom: 7px;
+}
+.site-header .sub-menu a {
+  font-size: 22px;
+}
+.site-header .sub-menu li {
+  margin-right: 30px;
+}
+.site-header .sub-menu .active a {
+  color: #0b5fc8;
+  border-bottom: 5px solid #0b5fc8;
+  padding-bottom: 5px;
+}
+.site-header .drop-menu {
+  margin-top: 15px;
+  padding-bottom: 10px;
+  border-bottom: 5px solid #0b5fc8;
+  display: none;
+}
+.site-header .drop-menu li + li {
+  border-left: 1px solid #0b5fc8;
+  padding-left: 10px;
+  margin-left: 5px;
+}
+
+.site-header--extended .header__main-content {
+  margin-bottom: 0;
+}
+.site-header--extended .drop-menu {
+  margin-bottom: 45px;
+}
+.site-header--extended .second-nav {
+  margin-top: 10px;
 }
 
 @media only screen and (max-width: 599px) {
@@ -708,6 +746,43 @@ label {
   .site-header h1 .sub-head {
     font-size: 24px;
     margin-top: 0;
+  }
+  .site-header .sub-menu a {
+    font-size: 16px;
+  }
+  .site-header .drop-menu {
+    border-bottom: 0;
+    margin-top: 0;
+  }
+  .site-header .drop-menu li {
+    display: block;
+  }
+  .site-header .drop-menu li + li {
+    padding: 0;
+    margin-left: 0;
+    border-left: 0;
+  }
+  .site-header .drop-menu li a {
+    padding: 10px;
+    display: block;
+  }
+  .site-header .drop-menu li a:after {
+    content: " ";
+    background: url(img/sprites/chevron-sml.png);
+    width: 9px;
+    height: 16px;
+    display: inline-block;
+    float: right;
+  }
+  .site-header .drop-menu li a:hover {
+    text-decoration: underline;
+  }
+  .site-header .drop-menu li a:hover:after {
+    background: url(img/sprites/chevron-sml--hvr.png);
+  }
+
+  .site-header--extended .drop-menu {
+    margin-bottom: 20px;
   }
 }
 .introduction {
@@ -762,7 +837,7 @@ label {
   overflow: hidden;
 }
 .brands img {
-  max-width: 100%;
+  max-width: 160px;
   max-height: 36px;
 }
 .brands h2 {

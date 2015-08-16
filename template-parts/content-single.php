@@ -99,9 +99,10 @@
 				</div><!-- .content__section -->
 			<?php endwhile; ?>
 			
-			<?php get_template_part( 'template-parts/content', 'post-nav' ); ?>
 
 		<?php endif; ?>
+
+		<?php get_template_part( 'template-parts/content', 'post-nav' ); ?>
 
 	<?php else : ?>
 		

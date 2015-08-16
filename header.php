@@ -61,7 +61,7 @@ get_currentuserinfo();
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="hfeed site<?php if ($blogPage) { ?> template-two<?php } ?>">
+<div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'emdad' ); ?></a>
 
 	<header id="masthead" class="site-header mod-header content header--sticky<?php if (!$blogPage) { ?> content--dark<?php } ?>" role="banner">
@@ -76,14 +76,14 @@ get_currentuserinfo();
 				<nav role="navigation">
 					<ul class="main-nav list-inline">
 						<li><a href="<?php if ($blogPage) { bloginfo('url'); } ?>#top"<?php if (!$blogPage) { echo ' class="jump-link"'; } ?>>Home</a></li>
-						<li<?php if ($page == 'Projects' && $current_user->caps) { echo ' class="active"'; } ?>><a href="<?php if ($page == 'Projects') { echo '#'; } else if ($blogPage) { echo $firstProject; } else { echo '#projects'; } ?>"<?php if ($page == 'Projects') { echo ' class="dropdown" data-menu="projects-menu"'; } else if (!$blogPage) { echo ' class="jump-link"'; } ?>>Projects</a></li>
+						<li<?php if ($blogPage) { echo ' class="active"'; } ?>><a href="<?php if ($blogPage) { echo '#'; } else { echo '#projects'; } ?>"<?php if ($blogPage) { echo ' class="dropdown"'; } else if (!$blogPage) { echo ' class="jump-link"'; } ?>>Projects</a></li>
 						<li><a href="<?php if ($blogPage) { bloginfo('url'); } ?>#contact"<?php if (!$blogPage) { echo ' class="jump-link"'; } ?>>Contact</a></li>
 					</ul>
 				</nav>	
 			</div>
 			<?php if ($blogPage && $current_user->caps) { ?>
-			<div class="projects projects-menu drop-menu">
-				<?php  if ($page == 'Projects') {
+			<div class="drop-menu">
+				<?php  if ($blogPage) {
 					get_template_part( 'template-parts/content', 'projects' );
 				} ?>
 			</div>				
