@@ -1,6 +1,9 @@
 .site-header
 {
 	background-color: #eee;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
 
 	.header__main-content
 	{
@@ -12,10 +15,11 @@
 	h1 
 	{
 		font-size: 64px;
+		transition: font-size $animationTime $animationStyle;
 
 		.sub-head
 		{
-			margin-top: -5px;
+			
 		}
 
 		a
@@ -33,7 +37,7 @@
 	{
 		position: absolute;
 		right: 0;	
-		bottom: 8px;
+		bottom: 7px;
 
 		a
 		{
@@ -106,6 +110,25 @@
 			}
 		}
 	}
+
+	&.sticky-header
+	{
+		h1
+		{
+			font-size: 32px;
+			transition: font-size $animationTime $animationStyle;
+
+		}
+
+		.sub-head
+		{
+			display: none;
+			// opacity: 0;
+			// margin-top: -32px;
+			// transition: opacity $animationTime $animationStyle;		
+			// transition: margin $animationTime $animationStyle;		
+		}
+	}
 }
 
 .site-header--extended
@@ -124,6 +147,45 @@
 	{
 		margin-top: 10px;
 	}
+}
+
+.single-post .site-header
+{
+	.main-nav
+	{
+		.active a
+		{
+			border-bottom: 4px solid $blue;
+			padding-bottom: 7px;
+			transition: border-bottom 100ms $animationStyle $animationTime;				
+
+			&:after
+			{
+				content: "";
+				width: 16px;
+				height: 10px;
+				display: inline-block;
+				background: url(img/sprites/arrow-menu.png);
+				margin-left: 5px;
+				transform: rotate(180deg);
+				transition: transform $animationTime $animationStyle;
+			}
+		}
+
+	}
+	&.open .main-nav
+	{
+		.active a
+		{
+			border-bottom: 0;
+			
+			&:after
+			{
+				transform: rotate(0deg);
+				transition: transform $animationTime $animationStyle;				
+			}
+		}
+	}		
 }
 
 @media only screen and (max-width: ($breakpointDesktop - 1) ) {
@@ -151,6 +213,8 @@
 		{
 			margin-bottom: 16px;
 			font-size: 41px;
+			margin-top: 0;
+			transition: margin $animationTime $animationStyle;	
 
 			.sub-head
 			{
@@ -210,6 +274,26 @@
 				}
 			}
 		}
+
+		&.sticky-header
+		{
+			h1
+			{
+				font-size: 41px;	
+				margin-top: -84px;
+				transition: margin $animationTime $animationStyle;			
+			}
+
+			.sub-head
+			{
+				display: block;		
+			}
+
+			.header__main-content
+			{
+				padding-bottom: 0;
+			}
+		}
 	}
 
 	.site-header--extended 
@@ -218,5 +302,27 @@
 		{
 			margin-bottom: 20px;
 		}
+
+		.second-nav
+		{
+			margin-top: 6px;
+		}
+	}
+
+	.single-post .site-header
+	{
+		.main-nav
+		{
+			.active a
+			{
+				border-bottom: 0;
+
+				&:after
+				{
+					display: none;
+				}				
+			}
+
+		}		
 	}
 }

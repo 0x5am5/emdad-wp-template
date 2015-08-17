@@ -76,7 +76,7 @@ get_currentuserinfo();
 				<nav role="navigation">
 					<ul class="main-nav list-inline">
 						<li><a href="<?php if ($blogPage) { bloginfo('url'); } ?>#top"<?php if (!$blogPage) { echo ' class="jump-link"'; } ?>>Home</a></li>
-						<li<?php if ($blogPage) { echo ' class="active"'; } ?>><a href="<?php if ($blogPage) { echo '#'; } else { echo '#projects'; } ?>"<?php if ($blogPage) { echo ' class="dropdown"'; } else if (!$blogPage) { echo ' class="jump-link"'; } ?>>Projects</a></li>
+					<li<?php if ($blogPage) { echo ' class="active"'; } ?>><a href="<?php if ($blogPage) { echo '#'; } else { echo '#projects'; } ?>"<?php if ($blogPage) { echo ' class="dropdown"'; } else if (!$blogPage) { echo ' class="jump-link"'; } ?>>Projects</a></li>
 						<li><a href="<?php if ($blogPage) { bloginfo('url'); } ?>#contact"<?php if (!$blogPage) { echo ' class="jump-link"'; } ?>>Contact</a></li>
 					</ul>
 				</nav>	

@@ -5,7 +5,7 @@
  * @package emdad-portfolio
  */
 ?>
-<div class="content content-wrap<?php // if (count(get_field('section')) > 1) { echo ' extended-header'; } ?>" id="top">
+<div class="content content-wrap<?php if (count(get_field('section')) > 1) { echo ' extended-header'; } ?>" id="top">
 
 	<?php 
 	global $current_user;

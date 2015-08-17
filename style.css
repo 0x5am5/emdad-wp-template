@@ -340,7 +340,10 @@ a.link-text:hover {
 }
 
 .single-post .content-wrap {
-  padding-top: 54px;
+  padding-top: 166px;
+}
+.single-post .extended-header {
+  padding-top: 204px;
 }
 
 .button,
@@ -654,6 +657,9 @@ label {
 }
 .site-header {
   background-color: #eee;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 .site-header .header__main-content {
   padding-top: 8px;
@@ -662,9 +668,7 @@ label {
 }
 .site-header h1 {
   font-size: 64px;
-}
-.site-header h1 .sub-head {
-  margin-top: -5px;
+  transition: font-size 400ms ease-in;
 }
 .site-header h1 a:hover, .site-header h1 a:focus {
   text-decoration: none;
@@ -673,7 +677,7 @@ label {
 .site-header .main-nav {
   position: absolute;
   right: 0;
-  bottom: 8px;
+  bottom: 7px;
 }
 .site-header .main-nav a {
   font-size: 20px;
@@ -714,6 +718,13 @@ label {
   padding-left: 10px;
   margin-left: 5px;
 }
+.site-header.sticky-header h1 {
+  font-size: 32px;
+  transition: font-size 400ms ease-in;
+}
+.site-header.sticky-header .sub-head {
+  display: none;
+}
 
 .site-header--extended .header__main-content {
   margin-bottom: 0;
@@ -723,6 +734,33 @@ label {
 }
 .site-header--extended .second-nav {
   margin-top: 10px;
+}
+
+.single-post .site-header .main-nav .active a {
+  border-bottom: 4px solid #0b5fc8;
+  padding-bottom: 7px;
+  transition: border-bottom 100ms ease-in 400ms;
+}
+.single-post .site-header .main-nav .active a:after {
+  content: "";
+  width: 16px;
+  height: 10px;
+  display: inline-block;
+  background: url(img/sprites/arrow-menu.png);
+  margin-left: 5px;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  transition: -webkit-transform 400ms ease-in;
+  transition: transform 400ms ease-in;
+}
+.single-post .site-header.open .main-nav .active a {
+  border-bottom: 0;
+}
+.single-post .site-header.open .main-nav .active a:after {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  transition: -webkit-transform 400ms ease-in;
+  transition: transform 400ms ease-in;
 }
 
 @media only screen and (max-width: 599px) {
@@ -742,6 +780,8 @@ label {
   .site-header h1 {
     margin-bottom: 16px;
     font-size: 41px;
+    margin-top: 0;
+    transition: margin 400ms ease-in;
   }
   .site-header h1 .sub-head {
     font-size: 24px;
@@ -780,15 +820,36 @@ label {
   .site-header .drop-menu li a:hover:after {
     background: url(img/sprites/chevron-sml--hvr.png);
   }
+  .site-header.sticky-header h1 {
+    font-size: 41px;
+    margin-top: -84px;
+    transition: margin 400ms ease-in;
+  }
+  .site-header.sticky-header .sub-head {
+    display: block;
+  }
+  .site-header.sticky-header .header__main-content {
+    padding-bottom: 0;
+  }
 
   .site-header--extended .drop-menu {
     margin-bottom: 20px;
+  }
+  .site-header--extended .second-nav {
+    margin-top: 6px;
+  }
+
+  .single-post .site-header .main-nav .active a {
+    border-bottom: 0;
+  }
+  .single-post .site-header .main-nav .active a:after {
+    display: none;
   }
 }
 .introduction {
   margin-bottom: 57px;
   min-width: 600px;
-  padding-top: 42px;
+  padding-top: 156px;
 }
 .introduction .content__section {
   position: relative;
