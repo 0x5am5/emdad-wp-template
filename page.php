@@ -95,18 +95,20 @@ get_header(); ?>
 						<p><?php echo get_sub_field('intro'); ?></p>
 					</div>
 				</div>
-				<div class="col w-66">
+				<div class="col w-33">
 					<ul class="grid">
 						<?php $i = 1; ?>
 						<?php while( have_rows('titles') ): the_row(); ?>
-							<li class="col w-50"><h3><?php echo get_sub_field('text'); ?></h3></li>
-						<?php if ($i % 2 == 0) : ?>
+							<li><h3><?php echo get_sub_field('text'); ?></h3></li>
+						<?php if ($i == 8) : ?>
 							</ul>
-							<ul class="grid">
+						</div>
+							<div class="col w-33">
+								<ul class="grid">
 						<?php endif; ?>
 							<?php $i++; ?>
 						<?php endwhile; ?>
-					</ul>
+					</ul>					
 				</div>
 			<?php endwhile; ?>
 			</div>

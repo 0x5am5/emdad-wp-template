@@ -33,7 +33,7 @@
 
 	&__view
 	{
-		text-align: right;
+		text-align: left;
 		font-family: $font-lt;
 		margin: 0;
 
@@ -89,8 +89,6 @@
 
 		&__view
 		{			
-			text-align: right;
-
 			a {
 				text-decoration: underline; 
 			}

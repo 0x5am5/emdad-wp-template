@@ -3,8 +3,14 @@
 		<div class="w-50 col alpha">
 			<div class="pad">
 				<h2 class="h3">Enter</h2>
+				
+				<?php if ($_GET['login'] == 'failed') : ?>
+				<div class="error">
+					Please enter correct info	
+				</div>
+				<?php endif; ?>
 
-				<form action="http://localhost:8888/emdad-wp/wp-login.php" method="post">
+				<form action="<?php echo get_option('home'); ?>/wp-login.php" method="post">
 					<div class="form-row">
 						<label for="log">Username</label>
 						<input type="text" name="log" id="log" value=""> 			
@@ -41,7 +47,7 @@
 
 				<p>Fill out the form below</p>
 
-				<form name="contact-form" action="http://samgregorydigital.co.uk/mail/emdad/contact-request.php" method="post">
+				<form name="contact-form" action="http://samgregory.media/mail/emdad/contact-request.php" method="post">
 					<div class="form-row">
 						<label for="full-name">Name</label>
 						<input type="text" id="full-name" name="full-name" required value="">
