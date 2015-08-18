@@ -203,6 +203,16 @@ function my_login_logo() { ?>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
+function my_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+    return 'Emdad Rashid Senior UX Consultant';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
 //functions tell whether there are previous or next 'pages' from the current page
 //returns 0 if no 'page' exists, returns a number > 0 if 'page' does exist
 //ob_ functions are used to suppress the previous_posts_link() and next_posts_link() from printing their output to the screen
