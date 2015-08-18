@@ -1,0 +1,20 @@
+
+@media only screen and (max-width: ($breakpointDesktop - 1) ) {
+	.delivering-delight
+	{
+		h2
+		{
+			margin-bottom: 39px;
+		}
+
+		h3
+		{
+			margin-bottom: 21px;
+		}
+
+		&__content
+		{
+			margin-bottom: 40px;
+		}
+	}
+}
