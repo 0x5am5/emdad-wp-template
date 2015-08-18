@@ -12,31 +12,7 @@
 		font-family: $font-rg;
 		position: relative;
 		display: block;
-		overflow: hidden;
 		margin-bottom: 20px;
-
-		// &:after
-		// {
-		// 	// content: '';
-		// 	// background: url(img/sprites/chevron.png) no-repeat;
-		// 	// display: inline-block;
-		// 	// width: 11px;
-		// 	// height: 20px;
-		// 	// position: absolute;
-		// 	// top:-2px;
-		// 	// right: -20px;
-		// }
-
-		// &:hover,
-		// &:focus
-		// {
-		// 	text-decoration: underline;
-
-		// 	&:after
-		// 	{
-		// 		background: url(img/sprites/chevron-hvr.png);
-		// 	}
-		// }
 	}
 
 	h3 {
