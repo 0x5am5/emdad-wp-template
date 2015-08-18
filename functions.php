@@ -128,16 +128,22 @@ function emdad_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'emdad_scripts' );
 
+/**
+ * Remove top bar.
+ *
+*/
+function remove_admin_bar() {
+  if (!current_user_can('administrator') && !is_admin()) {
+      show_admin_bar(false);
+  }
+}
 add_action('after_setup_theme', 'remove_admin_bar');
 
-function remove_admin_bar() {
-	if (!current_user_can('administrator') && !is_admin()) {
-  		show_admin_bar(false);
-	}
-}
 
-add_action( 'wp_login_failed', 'my_front_end_login_fail' );  // hook failed login
-
+/**
+ * If log in fails, redirect to same page
+ *
+*/
 function my_front_end_login_fail( $username ) {
    $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
    // if there's a valid referrer, and it's not the default log-in screen
@@ -146,7 +152,12 @@ function my_front_end_login_fail( $username ) {
       exit;
    }
 }
+add_action( 'wp_login_failed', 'my_front_end_login_fail' );  // hook failed login
 
+/**
+ * Custom Log in styles
+ *
+*/
 function my_login_logo() { ?>
     <style type="text/css">
         .login h1 a {
@@ -203,15 +214,107 @@ function my_login_logo() { ?>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
+/**
+ * Custom login logo url
+ *
+*/
 function my_login_logo_url() {
     return home_url();
 }
 add_filter( 'login_headerurl', 'my_login_logo_url' );
 
+/**
+ * Custon login link title
+ *
+*/
 function my_login_logo_url_title() {
     return 'Emdad Rashid Senior UX Consultant';
 }
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
+/**
+ * Customising menu labels
+ *
+*/
+function customize_post_admin_menu_labels() {
+  global $menu;
+  global $submenu;
+  $menu[5][0] = 'Projects';
+  $submenu['edit.php'][5][0] = 'Projects';
+  $submenu['edit.php'][10][0] = 'Add Project';
+  
+  $menu[20][0] = 'Home Page';
+  $submenu['edit.php?post_type=page'][5][0] = 'Edit Home page';
+  $submenu['edit.php?post_type=page'][5][2] = 'post.php?post=5&action=edit';
+
+  remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=category' );
+  remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=post_tag' );
+  remove_submenu_page( 'edit.php?post_type=page', 'post-new.php?post_type=page' );
+
+  echo '';
+}
+add_action( 'admin_menu', 'customize_post_admin_menu_labels' );
+
+/**
+ * Customising admin labels
+ *
+*/
+function customize_admin_labels() {
+  global $wp_post_types;
+  
+  // Post - Projects
+  $labels = &$wp_post_types['post']->labels;
+  $labels->name = 'Projects';
+  $labels->singular_name = 'Project';
+  $labels->add_new = 'Add Project';
+  $labels->add_new_item = 'Add Projects';
+  $labels->edit_item = 'Edit Project';
+  $labels->new_item = 'Project';
+  $labels->view_item = 'View Projects';
+  $labels->not_found = 'No Projects found';
+  $labels->not_found_in_trash = 'No Projects found in Trash';
+
+  // Pages - Home page
+  $labels = &$wp_post_types['page']->labels;
+  $labels->name = 'Home Page';
+  $labels->singular_name = 'Home Page';
+  $labels->edit_item = 'Edit Home Page';
+}
+ add_action( 'init', 'customize_admin_labels' );
+
+
+/**
+ * Customising menu order
+ *
+*/
+function wpse_73006_submenu_order( $menu_ord ) 
+{
+
+    if (wp_get_current_user()->user_login != "admin" && is_admin()) :
+
+      global $menu;
+
+      $arr = array();
+      $arr[] = $menu[2];  // Dashboard 
+      $arr[] = $menu[4];  // Separator 1
+      $arr[] = $menu[5];  // Projects
+      $arr[] = $menu[20]; // Home page
+      $arr[] = $menu[70]; // Users
+      $arr[] = $menu[10]; // Media
+      $arr[] = $menu[59]; // Separator 2
+      $arr[] = $menu[65]; // Plugins
+      $arr[] = $menu[75]; // Tools
+      $arr[] = $menu[80]; // Settings
+      $arr[] = $menu[99]; // Separator Last
+      $arr[] = $menu[100];// Google Analytics
+      
+      $menu = $arr;
+
+      return $menu_ord;
+
+    endif;
+}
+add_filter( 'custom_menu_order', 'wpse_73006_submenu_order' );
 
 //functions tell whether there are previous or next 'pages' from the current page
 //returns 0 if no 'page' exists, returns a number > 0 if 'page' does exist
