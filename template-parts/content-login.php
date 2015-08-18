@@ -4,18 +4,47 @@
 			<div class="pad">
 				<h2 class="h3">Enter</h2>
 				
-				<?php if ($_GET['login'] == 'failed') : ?>
-				<div class="error">
-					Please enter correct info	
+				<?php $failed = $_GET['login'] ?>
+
+				<?php if ($failed) : ?>
+				<style>
+					.error-list
+					{
+						border: 1px solid red;
+						color: red;
+						margin-bottom: 20px;
+						padding: 10px;
+					}
+					.error-list	ul
+					{
+						margin-top: 20px;
+					}
+					.error
+					{
+						color: red;
+					}
+					.error input
+					{
+						border: 1px solid red;
+						background-color: #fff;
+					}
+				</style>
+				<div class="error-list">
+					Please check the errors below
+
+					<ul>
+						<li>1. Username</li>
+						<li>2. Password</li>
+					</ul>
 				</div>
 				<?php endif; ?>
 
 				<form action="<?php echo get_option('home'); ?>/wp-login.php" method="post">
-					<div class="form-row">
+					<div class="form-row<?php if ($failed) { echo ' error'; } ?>">
 						<label for="log">Username</label>
 						<input type="text" name="log" id="log" value=""> 			
 					</div>
-					<div class="form-row">
+					<div class="form-row<?php if ($failed) { echo ' error'; } ?>">
 						<label for="pwd">Password</label>
 						<input type="password" name="pwd" id="pwd"> 						
 					</div>

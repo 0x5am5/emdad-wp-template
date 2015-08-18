@@ -147,6 +147,61 @@ function my_front_end_login_fail( $username ) {
    }
 }
 
+function my_login_logo() { ?>
+    <style type="text/css">
+        .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/emdad.png);
+            padding-bottom: 30px;
+            margin: 0;
+    				width: 320px;
+    				height: auto;
+    				background-size: 320px;
+        }
+        .login .button.button-large
+        {
+					background: #0b5fc8;
+			    -webkit-appearance: none;
+			    -moz-appearance: none;
+			    appearance: none;
+			    border: 0;
+			    border-radius: 0;
+        }
+        .login form input[type="text"],
+        .login form input[type="password"]
+        {
+					padding: 10px;
+			    background: #e1e1e1;
+			    border: 1px solid #898989;
+			    width: 100%;
+			    font-size: 18px;
+        }
+        .login form input[type="text"]:focus,
+        .login form input[type="password"]:focus
+        {
+        	border-color: #0b5fc8;
+        	box-shadow: none;
+        	background: #fff;
+    			outline: 0;
+        }
+        .login form label
+        {
+          display: block;
+    			margin-bottom: 6px;
+    			font-size: 20px;
+    			color: #000;
+        }
+        .login .message {
+    			border-left-color: #0b5fc8;
+    		}
+    		.login #nav a:hover,
+    		.login #backtoblog a:hover
+    		{
+    			color: #0b5fc8;
+    			text-decoration: underline;
+    		}
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
 //functions tell whether there are previous or next 'pages' from the current page
 //returns 0 if no 'page' exists, returns a number > 0 if 'page' does exist
