@@ -43,7 +43,7 @@ get_header(); ?>
 						$title = $image['alt'];
 						$smallImage = get_sub_field('small_image');
 
-						if (!count($title)) {
+						if (!$title) {
 							$title = $image['title'];
 						}
 						$i++;
@@ -51,7 +51,7 @@ get_header(); ?>
 									
 					<li class="col w-33">
 						<div class="brands--img-wrap<?php if ($smallImage) { echo ' sml-img'; } ?>">
-							<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+							<img src="<?php echo $image['url']; ?>" alt="<?php echo $title; ?>">
 						</div>
 					</li>
 					<?php endwhile; ?>
