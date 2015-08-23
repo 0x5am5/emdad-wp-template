@@ -15,31 +15,34 @@ $j(function() {
 		var $mod = $j(e.delegateTarget);
 		var offset = $mod.outerHeight();
 
-		if ($j(e.currentTarget).is('.jump-link')) {
-			e.preventDefault();	
+		if (currentTarget.is('.jump-link')) {
+			e.preventDefault();			
 			var top = $j(currentTarget.attr('href')).position().top;	
 
 			$_b.animate({
-				scrollTop: top - (offset + 40)
+				scrollTop: top - (offset + 20)
 			}, '500', 'swing');
 
 			if (currentTarget.parents('.second-nav').length) {
 				currentTarget.parent().siblings().removeClass('active');
 				currentTarget.parent().addClass('active');
 			}
-
 			return;				
 		}
 
 		// to trigger dropdown
 		if(currentTarget.is('.dropdown')) {
 			e.preventDefault();	
-			$dropMenu.slideToggle(400);
-			$mod.toggleClass("open");
+			toggleHeader.call($mod);
 
 			return;
 		}	
 	});
+
+	function toggleHeader() {
+		$dropMenu.slideToggle(400);
+		this.toggleClass("open");			
+	}
 
 	$j('form input').each(function() {
 		$j(this).on('focusout', function(e) {
@@ -60,6 +63,21 @@ $j(function() {
 		$j('.site-header').addClass('site-header--extended');
 	}
 
+	$dropMenu.find('a').each(function() {
+		var text = $j(this).text()
+		
+		if (text.length > 11) {
+			
+			$j(this).addClass('trunc');
+			var newStr = text.substring(0, 10);
+			newStr += "<span>";
+			newStr += text.substring(10, text.length);
+			newStr += "</span>";
+
+			$j(this).html(newStr);
+		}
+	});
+
 	$_w.on('scroll', function() {
 
 		var top = $j(this).scrollTop();
@@ -67,6 +85,9 @@ $j(function() {
 
 		if (top >= 1) {
 			isMoving = true;
+			if(header.is('.open')){
+				toggleHeader.call(header);				
+			}
 		} else {
 			isMoving = false;
 		}

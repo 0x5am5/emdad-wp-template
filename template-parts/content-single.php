@@ -15,8 +15,7 @@
 		<?php if( have_rows('section') ): ?>
 			<?php while( have_rows('section') ): the_row(); 
 					$company = get_sub_field('company');
-					$subhead = get_sub_field('sub-head');				
-					$intro = get_sub_field('intro');
+					$subhead = get_sub_field('sub-head');
 				?>
 
 				<div class="content__section" id="<?php echo preg_replace('/[^a-zA-Z0-9]+/', '-', strtolower($company)); ?>">
@@ -27,8 +26,19 @@
 								<?php echo $subhead; ?>
 							</span>
 						</h2>
-
-						<p><?php echo $intro; ?></p>
+						<div class="grid introcy">
+							<div class="col w-50 alpha">
+								<div class="pad">
+									<p><?php the_sub_field('intro'); ?></p>
+								</div>									
+							</div>
+							<div class="col w-50 omega">
+								<div class="pad">
+									<p><?php the_sub_field('intro_right'); ?><p>
+								</div>									
+							</div>
+						</div>
+						<p></p>
 					</div><!-- .header -->
 						<?php if( have_rows('content') ): ?>
 							<?php while( have_rows('content') ): the_row();				

@@ -75,9 +75,9 @@ get_currentuserinfo();
 				</h1>
 				<nav role="navigation">
 					<ul class="main-nav list-inline">
-						<li><a href="<?php if ($blogPage) { bloginfo('url'); } ?>#top"<?php if (!$blogPage) { echo ' class="jump-link"'; } ?>>Home</a></li>
-						<li class="<?php if ($blogPage) { echo ' active'; } ?>"><a href="<?php if ($blogPage) { echo '#'; } else { echo '#projects'; } ?>"<?php if ($blogPage) { echo ' class="dropdown"'; } else if (!$blogPage) { echo ' class="jump-link"'; } ?>>Projects</a></li>
-						<li><a href="<?php if ($blogPage) { bloginfo('url'); } ?>#contact"<?php if (!$blogPage) { echo ' class="jump-link"'; } ?>>Contact</a></li>
+						<li><a href="<?php if (!is_front_page()) { bloginfo('url'); } ?>#top"<?php if (is_front_page()) { echo ' class="jump-link"'; } ?>>Home</a></li>
+						<li class="<?php if (!is_front_page()) { echo ' active'; } ?>"><a href="<?php if (!is_front_page()) { echo '#'; } else { echo '#projects'; } ?>"<?php if (!is_front_page()) { echo ' class="dropdown"'; } else if (is_front_page()) { echo ' class="jump-link"'; } ?>>Projects</a></li>
+						<li><a href="<?php if (!is_front_page()) { bloginfo('url'); } ?>#contact"<?php if (is_front_page()) { echo ' class="jump-link"'; } ?>>Contact</a></li>
 					</ul>
 				</nav>	
 			</div>

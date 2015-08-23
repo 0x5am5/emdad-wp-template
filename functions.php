@@ -247,9 +247,9 @@ function customize_post_admin_menu_labels() {
   $submenu['edit.php?post_type=page'][5][0] = 'Edit Home page';
   $submenu['edit.php?post_type=page'][5][2] = 'post.php?post=5&action=edit';
 
-  remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=category' );
-  remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=post_tag' );
-  remove_submenu_page( 'edit.php?post_type=page', 'post-new.php?post_type=page' );
+  remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=category' ); // remove category submenu
+  remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=post_tag' ); // remote tag sub menu
+  remove_submenu_page( 'edit.php?post_type=page', 'post-new.php?post_type=page' ); // remove add new page sub menu
 
   echo '';
 }
@@ -280,7 +280,7 @@ function customize_admin_labels() {
   $labels->singular_name = 'Home Page';
   $labels->edit_item = 'Edit Home Page';
 }
- add_action( 'init', 'customize_admin_labels' );
+add_action( 'init', 'customize_admin_labels' );
 
 
 /**
@@ -295,6 +295,7 @@ function wpse_73006_submenu_order( $menu_ord )
       global $menu;
 
       $arr = array();
+      $arr[] = $menu["1.9998887771"];  // Dropbox 
       $arr[] = $menu[2];  // Dashboard 
       $arr[] = $menu[4];  // Separator 1
       $arr[] = $menu[5];  // Projects

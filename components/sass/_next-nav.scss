@@ -32,6 +32,12 @@
 		{		
 			a{
 				color: #636363;
+
+				&:hover,
+				&:focus
+				{
+					color: $blue;
+				}
 			}
 		}
 
