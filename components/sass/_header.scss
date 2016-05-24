@@ -3,7 +3,7 @@
 	background-color: #eee;
 	position: fixed;
 	width: 100%;
-	z-index: 1;
+	z-index: 1001;
 
 	.header__main-content
 	{
@@ -115,7 +115,6 @@
 			{
 				content:'...';
 				display: inline-block;
-				widht: auto;
 			}
 
 		    &:hover,
